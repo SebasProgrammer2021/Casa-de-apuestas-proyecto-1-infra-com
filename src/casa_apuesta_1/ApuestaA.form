@@ -29,11 +29,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel9" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel3" min="-2" pref="284" max="-2" attributes="0"/>
-                          <Component id="jLabel7" alignment="0" min="-2" pref="472" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jLabel3" min="-2" pref="284" max="-2" attributes="0"/>
+                      <EmptySpace pref="198" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -65,16 +62,14 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jLabel3" min="-2" pref="17" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <Component id="jLabel3" min="-2" pref="17" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="54" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="JTF_CUENTAH_APUESTA" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -82,7 +77,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="JTF_NUMERO_APUESTA" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel8" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="39" max="32767" attributes="0"/>
               <Component id="JBT_REALIZAR_APUESTAa" min="-2" pref="37" max="-2" attributes="0"/>
@@ -98,14 +93,6 @@
           <Color blue="33" green="cc" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Recuerde que la apuesta de tipo A es de 4 digitos."/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel7">
-      <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="33" green="cc" red="0" type="rgb"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Recuerde que las cuentas son de 7 digitos."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="JBT_REALIZAR_APUESTAa">
@@ -159,7 +146,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="cc" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="debe constar con saldo suficiente y una cuenta si no es asi cree una."/>
+        <Property name="text" type="java.lang.String" value="Ddebe contar con saldo suficiente y una cuenta si no es asi cree una."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="JTF_NUMERO_APUESTA">

@@ -169,9 +169,9 @@ public class Retirar extends javax.swing.JFrame {
 
     private void JBT_RETIRAR_DINEROActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBT_RETIRAR_DINEROActionPerformed
         // TODO add your handling code here:
-        Cajero_interface cjjjj = new Cajero_interface();
+        Cajero_interface cajero = new Cajero_interface();
         if(JTF_CUENTAH_RETIRAR.getText().length()>=6 && JTF_VALOR_RETIRAR.getText().length() !=0){
-            cjjjj.Retirar(JTF_CUENTAH_RETIRAR.getText(),JTF_VALOR_RETIRAR.getText());
+            cajero.Retirar(JTF_CUENTAH_RETIRAR.getText(),JTF_VALOR_RETIRAR.getText());
             this.dispose();
 
         }else{

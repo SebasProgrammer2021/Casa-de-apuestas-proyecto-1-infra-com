@@ -27,6 +27,27 @@ import static javax.swing.UIManager.get;
  */
 public class Servidor {
 
+    static HashMap<String, String> CuentasApuestas = new HashMap<String, String>();
+    static HashMap<String, Integer> saldoCuentas = new HashMap<String, Integer>();
+    static DataInputStream in;
+    static DataOutputStream out;
+
+    public static void depositarDinero() throws IOException {
+        try {
+            String cu = in.readUTF();
+            String va  = in.readUTF();
+
+            if (CuentasApuestas.containsValue(cu) && saldoCuentas.containsKey(cu)) {
+                saldoCuentas.put(cu, saldoCuentas.get(cu) + Integer.parseInt(va));
+                out.writeUTF("DEPOSITO REALIZADO: Se depositaron " + va  + " a la cuenta: " + cu);
+            } else {
+                out.writeUTF("Cuenta: " + cu + " no existente");
+            }
+        } catch (IOException ex) {
+            out.writeUTF("¡transacción erronea");
+        }
+    }
+
     public static void main(String[] args) {
 
         //FECHA
@@ -34,10 +55,7 @@ public class Servidor {
         String fecha = "Fecha: " + dtf5.format(LocalDateTime.now());
 
         // Create a HashMap object called cuentas
-        HashMap<String, String> CuentasApuestas = new HashMap<String, String>();
-
         //saldo cuenta
-        HashMap<String, Integer> saldoCuentas = new HashMap<String, Integer>();
         //almacenar fecha
         HashMap<String, String> fechatrans = new HashMap<String, String>();
 
@@ -49,8 +67,6 @@ public class Servidor {
 
         ServerSocket servidor = null;     ///el servidor siempre esta escuchando
         Socket sc = null;
-        DataInputStream in;
-        DataOutputStream out;
 
         //puerto de nuestro servidor
         final int PUERTO = 5000;
@@ -113,35 +129,23 @@ public class Servidor {
 
 //---------------------------------------DEPOSITAR PLATA CUENTA-----------------------------------------------------
                 switch (mensaje) {
+                    case "APOSTAR":
+
+                        break;
+                    case "CANCELAR":
+
+                        break;
+                    case "CONSULTAR_SALDO":
+
+                        break;
+                    case "CREAR_CUENTA":
+
+                        break;
                     case "DEPOSITAR":
+                        depositarDinero();
+                        break;
+                    case "RETIRAR":
                         try {
-                            System.out.println("servidor recibe: " + mensaje);
-                            //recibe datos de cliente en cuenta
-                            String cu = in.readUTF();
-                            String va  = in.readUTF();
-                            System.out.println(cu + va);
-
-                            //muestra datos de cliente
-                            System.out.println(cu + "servidor");
-
-                            if (CuentasApuestas.containsValue(cu) && saldoCuentas.containsKey(cu)) {
-                                System.out.println("si existe cuenta");
-                                saldoCuentas.put(cu, saldoCuentas.get(cu) + Integer.parseInt(va));
-                                out.writeUTF("DEPOSITO REALIZADO: Se depositaron " + va  + " a la cuenta: " + cu);
-                            } else {
-                                out.writeUTF("Cuenta: " + cu + " no existente");
-                            }
-                        } catch (IOException ex) {
-                            out.writeUTF("¡transacción erronea");
-                            System.out.println(ex);
-                        }
-                    break;
-                }
-//----------------------------------------PROCESO DE DEPOSITO FINALIZADO-------------------------------------------------------                     
-
-//---------------------------------------RETIRAR DINERO---------------------------------------------------------------------------
-                if ("RETIRAR".equals(mensaje)) {
-                    try {
                         System.out.println("servidor recibe: " + mensaje);
                         //recibe datos de cliente en cuenta
                         String cu = in.readUTF();
@@ -157,25 +161,21 @@ public class Servidor {
                                 if (s.equals(cu) && saldoCuentas.get(s) >= Integer.parseInt(va)) {
                                     int saldo = saldoCuentas.get(s) - Integer.parseInt(va);
                                     saldoCuentas.put(cu, saldo);
-                                    out.writeUTF("Retirar valor  " + va  + " Cuenta: " + cu);
+                                    out.writeUTF("Retiró " + va  + " de su cuenta: " + cu);
                                 } else {
                                     out.writeUTF("Fondos insuficientes... ");
                                 }
                             }
-
                         } else {
                             out.writeUTF("Cuenta: " + cu + " no existente");
                         }
-
                     } catch (IOException ex) {
                         out.writeUTF("¡transacción erronea");
                         System.out.println(ex);
-
                     }
-
+                    break;
                 }
 
-//-------------------------------------FINALIZA EL PROCESO DE RETIRAR DINERO-----------------------------------------------------                    
 //----------------------------------------------CANCELAR CUENTA-------------------------------------------------------------
                 if ("CANCELAR_CUENTA".equals(mensaje)) {
                     try {
@@ -193,7 +193,8 @@ public class Servidor {
                                 if (CuentasApuestas.get(f).equals(cc)) {
                                     int sa = saldoCuentas.get(saldo);
                                     if (sa != 0) {
-                                        out.writeUTF("RETIRE EL SALDO PARA ELIMINAR SALDO: " + sa + " " + CuentasApuestas.get(f));
+                                        out.writeUTF("No se puede eliminar la cuenta: " + CuentasApuestas.get(f) + ", ya que tiene saldo a favor.\n"
+                                                + "Saldo a favor: " + sa);
                                         sal = true;
                                     }
                                 }
@@ -213,7 +214,7 @@ public class Servidor {
                                     if (cc.equalsIgnoreCase(entry.getValue())) {
                                         iter.remove();
                                         System.out.println("entre al while");
-                                        out.writeUTF("La cuenta ha sido eliminada : " + cc);
+                                        out.writeUTF("La cuenta : " + cc + " ha sido eliminada exitosamente.");
                                     }
                                 }
                             } else {
@@ -272,7 +273,7 @@ public class Servidor {
                             }
 
                         } else {
-                            out.writeUTF("ESTA CUENTA NO TIENE APUESTA CREE UNA" + cuo);
+                            out.writeUTF("La cuenta no existe o la cuenta no tiene saldo suficiente o  la cuente no tiene apuestas" + cuo);
                         }
 
                     } catch (IOException ex) {

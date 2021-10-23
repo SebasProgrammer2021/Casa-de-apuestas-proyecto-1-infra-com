@@ -536,9 +536,9 @@ public class Cajero_interface extends javax.swing.JFrame {
         
     }//GEN-LAST:event_CANCELAR_APUESTAActionPerformed
 
-    public void cancelar_cuentas(String n){
+    public void cancelar_cuentas(String _numeroCuenta){
         // TODO add your handling code here:
-        String ccah = n;
+        String numeroCuenta = _numeroCuenta;
         try {
             //Creo el socket para conectarme con el cliente
             Socket sc = new Socket(HOST, PUERTO);
@@ -549,7 +549,7 @@ public class Cajero_interface extends javax.swing.JFrame {
             //Envio un mensaje al cliente
 
             out.writeUTF("CANCELAR_CUENTA");
-            out.writeUTF(ccah);
+            out.writeUTF(numeroCuenta);
            
 
             //Recibo el mensaje del servidor
@@ -623,7 +623,6 @@ public class Cajero_interface extends javax.swing.JFrame {
             out = new DataOutputStream(sc.getOutputStream());
 
             //Envio un mensaje al cliente
-
             out.writeUTF("RETIRAR");
             out.writeUTF(c);
             out.writeUTF(v);
