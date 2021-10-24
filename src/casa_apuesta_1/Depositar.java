@@ -4,7 +4,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
-/**  
+/**
  *
  * @author Rodrigo Acosta Restrepo.
  * @author Juan Sebastián Tobón.
@@ -15,30 +15,41 @@ public class Depositar extends javax.swing.JFrame {
     /**
      * Creates new form Depositar
      */
+    static int b;
+
     public Depositar() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("DEPOSITAR CUENTA");
-        
-        JTF_CUENTAH_DEPOSITAR.addKeyListener(new KeyAdapter() {
+        btnDepositar.setEnabled(false);
+
+        numeroCuenta.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e) {
+                char caracter = e.getKeyChar();
+
+                if (numeroCuenta.getText().length() == 6) {
+                    btnDepositar.setEnabled(true);
+                } else {
+                    btnDepositar.setEnabled(false);
+                }
+
+                // Verificar si la tecla pulsada no es un digito
+                if (((caracter < '0') || (caracter > '9')) && (caracter != '\b' /*corresponde a un espacio*/)) {
+                    // ignorar el evento de teclado
+                    e.consume();
+                }
+            }
+        });
+        System.out.println(b);
+
+        cantidad.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
                 char caracter = e.getKeyChar();
 
                 // Verificar si la tecla pulsada no es un digito
                 if (((caracter < '0') || (caracter > '9')) && (caracter != '\b' /*corresponde a un espacio*/)) {
                     // ignorar el evento de teclado
-                    e.consume();  
-                }
-            }
-        });
-        JTF_VALO_DEPOSITAR.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent e) {
-                char caracter = e.getKeyChar();
-
-                // Verificar si la tecla pulsada no es un digito
-                if (((caracter < '0') || (caracter > '9')) && (caracter != '\b' /*corresponde a un espacio*/)) {
-                   // ignorar el evento de teclado
-                    e.consume();  
+                    e.consume();
                 }
             }
         });
@@ -56,16 +67,16 @@ public class Depositar extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        JBT_DEPOSITAR_DINERO = new javax.swing.JButton();
-        JTF_CUENTAH_DEPOSITAR = new javax.swing.JTextField();
+        btnDepositar = new javax.swing.JButton();
+        numeroCuenta = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        JTF_VALO_DEPOSITAR = new javax.swing.JTextField();
+        cantidad = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        jLabel6.setText("Cuenta:");
+        jLabel6.setText("Numero cuenta:");
 
         jLabel5.setForeground(new java.awt.Color(0, 204, 51));
         jLabel5.setText("ingrese el valor a depositar sin puntos.");
@@ -73,24 +84,24 @@ public class Depositar extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 204, 51));
         jLabel7.setText("Recuerde el numero de la cuenta a la que va a depositar.");
 
-        JBT_DEPOSITAR_DINERO.setBackground(new java.awt.Color(153, 255, 51));
-        JBT_DEPOSITAR_DINERO.setText("DEPOSITAR");
-        JBT_DEPOSITAR_DINERO.addActionListener(new java.awt.event.ActionListener() {
+        btnDepositar.setBackground(new java.awt.Color(153, 255, 51));
+        btnDepositar.setText("DEPOSITAR");
+        btnDepositar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBT_DEPOSITAR_DINEROActionPerformed(evt);
+                btnDepositarActionPerformed(evt);
             }
         });
 
-        JTF_CUENTAH_DEPOSITAR.setBackground(new java.awt.Color(153, 255, 153));
-        JTF_CUENTAH_DEPOSITAR.setForeground(new java.awt.Color(0, 153, 0));
-        JTF_CUENTAH_DEPOSITAR.addActionListener(new java.awt.event.ActionListener() {
+        numeroCuenta.setBackground(new java.awt.Color(153, 255, 153));
+        numeroCuenta.setForeground(new java.awt.Color(0, 153, 0));
+        numeroCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTF_CUENTAH_DEPOSITARActionPerformed(evt);
+                numeroCuentaActionPerformed(evt);
             }
         });
-        JTF_CUENTAH_DEPOSITAR.addKeyListener(new java.awt.event.KeyAdapter() {
+        numeroCuenta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                JTF_CUENTAH_DEPOSITARKeyTyped(evt);
+                numeroCuentaKeyTyped(evt);
             }
         });
 
@@ -98,18 +109,18 @@ public class Depositar extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 204, 51));
         jLabel3.setText("Depositar cuenta ");
 
-        jLabel8.setText("Valor:");
+        jLabel8.setText("Cantidad:");
 
-        JTF_VALO_DEPOSITAR.setBackground(new java.awt.Color(153, 255, 153));
-        JTF_VALO_DEPOSITAR.setForeground(new java.awt.Color(0, 153, 0));
-        JTF_VALO_DEPOSITAR.addActionListener(new java.awt.event.ActionListener() {
+        cantidad.setBackground(new java.awt.Color(153, 255, 153));
+        cantidad.setForeground(new java.awt.Color(0, 153, 0));
+        cantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTF_VALO_DEPOSITARActionPerformed(evt);
+                cantidadActionPerformed(evt);
             }
         });
-        JTF_VALO_DEPOSITAR.addKeyListener(new java.awt.event.KeyAdapter() {
+        cantidad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                JTF_VALO_DEPOSITARKeyTyped(evt);
+                cantidadKeyTyped(evt);
             }
         });
 
@@ -140,10 +151,10 @@ public class Depositar extends javax.swing.JFrame {
                         .addComponent(jLabel8)))
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JBT_DEPOSITAR_DINERO, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDepositar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(JTF_VALO_DEPOSITAR, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                        .addComponent(JTF_CUENTAH_DEPOSITAR)))
+                        .addComponent(cantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                        .addComponent(numeroCuenta)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -157,53 +168,55 @@ public class Depositar extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JTF_CUENTAH_DEPOSITAR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numeroCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JTF_VALO_DEPOSITAR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JBT_DEPOSITAR_DINERO, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnDepositar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JBT_DEPOSITAR_DINEROActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBT_DEPOSITAR_DINEROActionPerformed
+    private void btnDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositarActionPerformed
         // TODO add your handling code here:
         Cajero_interface cajero = new Cajero_interface();
-        if(JTF_CUENTAH_DEPOSITAR.getText().length()>=6 && JTF_VALO_DEPOSITAR.getText().length() !=0){
-            cajero.Depositar(JTF_CUENTAH_DEPOSITAR.getText(),JTF_VALO_DEPOSITAR.getText());
+        if (numeroCuenta.getText().length() == 7 && cantidad.getText().length() > 0) {
+            cajero.Depositar(numeroCuenta.getText(), cantidad.getText());
             this.dispose();
-
-        }else{
+        } else {
+            btnDepositar.setEnabled(false);
             JOptionPane.showMessageDialog(null, "Ingrese una cuenta y un valor a depositar");
         }
-    }//GEN-LAST:event_JBT_DEPOSITAR_DINEROActionPerformed
+    }//GEN-LAST:event_btnDepositarActionPerformed
 
-    private void JTF_CUENTAH_DEPOSITARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_CUENTAH_DEPOSITARActionPerformed
+    private void numeroCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroCuentaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JTF_CUENTAH_DEPOSITARActionPerformed
+    }//GEN-LAST:event_numeroCuentaActionPerformed
 
-    private void JTF_CUENTAH_DEPOSITARKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTF_CUENTAH_DEPOSITARKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTF_CUENTAH_DEPOSITARKeyTyped
+    private void numeroCuentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroCuentaKeyTyped
+        if (numeroCuenta.getText().length() > 6) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_numeroCuentaKeyTyped
 
-    private void JTF_VALO_DEPOSITARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_VALO_DEPOSITARActionPerformed
+    private void cantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JTF_VALO_DEPOSITARActionPerformed
+    }//GEN-LAST:event_cantidadActionPerformed
 
-    private void JTF_VALO_DEPOSITARKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTF_VALO_DEPOSITARKeyTyped
+    private void cantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantidadKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_JTF_VALO_DEPOSITARKeyTyped
+    }//GEN-LAST:event_cantidadKeyTyped
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -228,16 +241,16 @@ public class Depositar extends javax.swing.JFrame {
                 new Depositar().setVisible(true);
             }
         });
-    } 
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBT_DEPOSITAR_DINERO;
-    private javax.swing.JTextField JTF_CUENTAH_DEPOSITAR;
-    private javax.swing.JTextField JTF_VALO_DEPOSITAR;
+    private javax.swing.JButton btnDepositar;
+    private javax.swing.JTextField cantidad;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JTextField numeroCuenta;
     // End of variables declaration//GEN-END:variables
 }

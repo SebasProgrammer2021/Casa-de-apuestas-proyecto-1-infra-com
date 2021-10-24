@@ -81,7 +81,10 @@
                                           <Component id="EVENTO_NULL" min="-2" pref="210" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                                      <Component id="CARGA_AUTO" min="-2" pref="166" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="CARGA_AUTO" min="-2" pref="166" max="-2" attributes="0"/>
+                                          <Component id="cerrarApuestas" min="-2" pref="144" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -129,12 +132,21 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="REALIZAR_APUESTA" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="CONSULTAR_SALDO" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="REALIZAR_APUESTA" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                  <Component id="CONSULTAR_SALDO" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="cerrarApuestas" min="-2" pref="32" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="CARGA_AUTO" alignment="1" min="-2" pref="31" max="-2" attributes="0"/>
                           <Group type="103" alignment="1" groupAlignment="3" attributes="0">
@@ -190,9 +202,6 @@
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="13" style="3"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cancelar cuenta "/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -329,9 +338,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="13" style="3"/>
         </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Hacer apuesta "/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
@@ -394,6 +400,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EVENTO_NULLActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="cerrarApuestas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cerrar Apuestas"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cerrarApuestasActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
