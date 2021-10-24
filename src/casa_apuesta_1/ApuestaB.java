@@ -178,7 +178,7 @@ public class ApuestaB extends javax.swing.JFrame {
         // TODO add your handling code here:
         Cajero_interface cjjjjj = new Cajero_interface();
         if(JTF_CUENTAH_APUESTA.getText().length()>=6 && JTF_NUMERO_APUESTA.getText().length() !=0){
-            cjjjjj.Tranferencia(JTF_CUENTAH_APUESTA.getText(),JTF_NUMERO_APUESTA.getText());
+            cjjjjj.realizarApuesta(JTF_CUENTAH_APUESTA.getText(),JTF_NUMERO_APUESTA.getText());
             this.dispose();
 
         }else{

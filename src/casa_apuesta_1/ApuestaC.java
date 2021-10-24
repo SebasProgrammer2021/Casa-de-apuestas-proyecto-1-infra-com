@@ -176,9 +176,9 @@ public class ApuestaC extends javax.swing.JFrame {
 
     private void JBT_REALIZAR_APUESTAcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBT_REALIZAR_APUESTAcActionPerformed
         // TODO add your handling code here:
-        Cajero_interface cjjjjj = new Cajero_interface();
+        Cajero_interface cajero = new Cajero_interface();
         if(JTF_CUENTAH_APUESTA.getText().length()>=6 && JTF_NUMERO_APUESTA.getText().length() !=0){
-            cjjjjj.Tranferencia(JTF_CUENTAH_APUESTA.getText(),JTF_NUMERO_APUESTA.getText());
+            cajero.realizarApuesta(JTF_CUENTAH_APUESTA.getText(),JTF_NUMERO_APUESTA.getText());
             this.dispose();
 
         }else{

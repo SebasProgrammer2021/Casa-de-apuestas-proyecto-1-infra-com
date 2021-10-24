@@ -78,8 +78,8 @@
                               </Group>
                               <EmptySpace min="59" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="nom_usuario" max="32767" attributes="0"/>
-                                  <Component id="apellido_usuario1" max="32767" attributes="0"/>
+                                  <Component id="nombreUsuario" max="32767" attributes="0"/>
+                                  <Component id="apellidoUsuario" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                                       <Component id="btn_crear_cuenta" min="-2" pref="119" max="-2" attributes="0"/>
@@ -112,13 +112,13 @@
               <Component id="jLabel3" min="-2" pref="42" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="nom_usuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="nombreUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="apellido_usuario1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="apellidoUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="43" max="32767" attributes="0"/>
               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
@@ -165,7 +165,7 @@
         <Property name="text" type="java.lang.String" value="                           Saldo de $0 pesos"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="nom_usuario">
+    <Component class="javax.swing.JTextField" name="nombreUsuario">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="ff" red="99" type="rgb"/>
@@ -181,6 +181,7 @@
           <Color blue="33" green="ff" red="99" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Enviar"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_crear_cuentaActionPerformed"/>
@@ -191,7 +192,7 @@
         <Property name="text" type="java.lang.String" value="Apellido:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="apellido_usuario1">
+    <Component class="javax.swing.JTextField" name="apellidoUsuario">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="ff" red="99" type="rgb"/>

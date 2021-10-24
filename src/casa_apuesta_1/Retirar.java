@@ -18,7 +18,7 @@ public class Retirar extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("RETIRAR CUENTA");
 
-        JTF_CUENTAH_RETIRAR.addKeyListener(new KeyAdapter() {
+        numeroCuenta.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
                 char caracter = e.getKeyChar();
 
@@ -56,7 +56,7 @@ public class Retirar extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         JBT_RETIRAR_DINERO = new javax.swing.JButton();
-        JTF_CUENTAH_RETIRAR = new javax.swing.JTextField();
+        numeroCuenta = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         JTF_VALOR_RETIRAR = new javax.swing.JTextField();
@@ -80,16 +80,16 @@ public class Retirar extends javax.swing.JFrame {
             }
         });
 
-        JTF_CUENTAH_RETIRAR.setBackground(new java.awt.Color(153, 255, 153));
-        JTF_CUENTAH_RETIRAR.setForeground(new java.awt.Color(0, 153, 0));
-        JTF_CUENTAH_RETIRAR.addActionListener(new java.awt.event.ActionListener() {
+        numeroCuenta.setBackground(new java.awt.Color(153, 255, 153));
+        numeroCuenta.setForeground(new java.awt.Color(0, 153, 0));
+        numeroCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTF_CUENTAH_RETIRARActionPerformed(evt);
+                numeroCuentaActionPerformed(evt);
             }
         });
-        JTF_CUENTAH_RETIRAR.addKeyListener(new java.awt.event.KeyAdapter() {
+        numeroCuenta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                JTF_CUENTAH_RETIRARKeyTyped(evt);
+                numeroCuentaKeyTyped(evt);
             }
         });
 
@@ -139,7 +139,7 @@ public class Retirar extends javax.swing.JFrame {
                     .addComponent(JBT_RETIRAR_DINERO, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(JTF_VALOR_RETIRAR, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                        .addComponent(JTF_CUENTAH_RETIRAR)))
+                        .addComponent(numeroCuenta)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -153,7 +153,7 @@ public class Retirar extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JTF_CUENTAH_RETIRAR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numeroCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -170,8 +170,8 @@ public class Retirar extends javax.swing.JFrame {
     private void JBT_RETIRAR_DINEROActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBT_RETIRAR_DINEROActionPerformed
         // TODO add your handling code here:
         Cajero_interface cajero = new Cajero_interface();
-        if(JTF_CUENTAH_RETIRAR.getText().length()>=6 && JTF_VALOR_RETIRAR.getText().length() !=0){
-            cajero.Retirar(JTF_CUENTAH_RETIRAR.getText(),JTF_VALOR_RETIRAR.getText());
+        if(numeroCuenta.getText().length()>=6 && JTF_VALOR_RETIRAR.getText().length() !=0){
+            cajero.Retirar(numeroCuenta.getText(),JTF_VALOR_RETIRAR.getText());
             this.dispose();
 
         }else{
@@ -179,13 +179,16 @@ public class Retirar extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JBT_RETIRAR_DINEROActionPerformed
 
-    private void JTF_CUENTAH_RETIRARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_CUENTAH_RETIRARActionPerformed
+    
+    private void numeroCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroCuentaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JTF_CUENTAH_RETIRARActionPerformed
+    }//GEN-LAST:event_numeroCuentaActionPerformed
 
-    private void JTF_CUENTAH_RETIRARKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTF_CUENTAH_RETIRARKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTF_CUENTAH_RETIRARKeyTyped
+    private void numeroCuentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroCuentaKeyTyped
+         if (numeroCuenta.getText().length() > 6) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_numeroCuentaKeyTyped
 
     private void JTF_VALOR_RETIRARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_VALOR_RETIRARActionPerformed
         // TODO add your handling code here:
@@ -228,12 +231,12 @@ public class Retirar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBT_RETIRAR_DINERO;
-    private javax.swing.JTextField JTF_CUENTAH_RETIRAR;
     private javax.swing.JTextField JTF_VALOR_RETIRAR;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JTextField numeroCuenta;
     // End of variables declaration//GEN-END:variables
 }

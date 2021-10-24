@@ -3,19 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package casa_apuesta_1; 
- 
+package casa_apuesta_1;
+
 import java.awt.Color;
 import java.awt.Image;
-import java.awt.Toolkit; 
+import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.HashMap;
 
-
 /**
- * 
+ *
  * @author Rodrigo Acosta Restrepo.
  * @author Juan Sebastián Tobón.
  * @author Sebastián Londoño Valencia.
@@ -31,7 +30,6 @@ public class Abrir_cuenta_datos extends javax.swing.JFrame {
         //this.getContentPane().setBackground(Color.gray);  //cambiar color fondo de jframe
     }
 
- 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -43,10 +41,10 @@ public class Abrir_cuenta_datos extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        nom_usuario = new javax.swing.JTextField();
+        nombreUsuario = new javax.swing.JTextField();
         btn_crear_cuenta = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        apellido_usuario1 = new javax.swing.JTextField();
+        apellidoUsuario = new javax.swing.JTextField();
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 255));
@@ -77,11 +75,12 @@ public class Abrir_cuenta_datos extends javax.swing.JFrame {
 
         jLabel7.setText("                           Saldo de $0 pesos");
 
-        nom_usuario.setBackground(new java.awt.Color(153, 255, 153));
-        nom_usuario.setForeground(new java.awt.Color(0, 153, 0));
+        nombreUsuario.setBackground(new java.awt.Color(153, 255, 153));
+        nombreUsuario.setForeground(new java.awt.Color(0, 153, 0));
 
         btn_crear_cuenta.setBackground(new java.awt.Color(153, 255, 51));
         btn_crear_cuenta.setText("Enviar");
+        btn_crear_cuenta.setToolTipText("");
         btn_crear_cuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_crear_cuentaActionPerformed(evt);
@@ -90,8 +89,8 @@ public class Abrir_cuenta_datos extends javax.swing.JFrame {
 
         jLabel9.setText("Apellido:");
 
-        apellido_usuario1.setBackground(new java.awt.Color(153, 255, 153));
-        apellido_usuario1.setForeground(new java.awt.Color(0, 153, 51));
+        apellidoUsuario.setBackground(new java.awt.Color(153, 255, 153));
+        apellidoUsuario.setForeground(new java.awt.Color(0, 153, 51));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,8 +110,8 @@ public class Abrir_cuenta_datos extends javax.swing.JFrame {
                                     .addComponent(jLabel9))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(nom_usuario)
-                                    .addComponent(apellido_usuario1)
+                                    .addComponent(nombreUsuario)
+                                    .addComponent(apellidoUsuario)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
                                         .addComponent(btn_crear_cuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -135,12 +134,12 @@ public class Abrir_cuenta_datos extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nom_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(apellido_usuario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(apellidoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addGap(37, 37, 37)
@@ -152,23 +151,21 @@ public class Abrir_cuenta_datos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_crear_cuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crear_cuentaActionPerformed
-        // TODO add your handling code here:
-        if(nom_usuario.getText().length() >0 && apellido_usuario1.getText().length() >0 ){
-            Cajero_interface ca = new Cajero_interface();
-            ca.datos(nom_usuario.getText(), apellido_usuario1.getText()); //funcion del cliente se le envia los datos
-            
-             this.dispose();
-        }else{
-           JOptionPane.showMessageDialog(null, "Ingrese los datos");
+        if (nombreUsuario.getText().length() > 0 && apellidoUsuario.getText().length() > 0) {
+            Cajero_interface cajero = new Cajero_interface();
+            cajero.datos(nombreUsuario.getText(), apellidoUsuario.getText()); //funcion del cliente se le envia los datos
+
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Ingrese los datos");
         }
-        
-       
-       
+
+
     }//GEN-LAST:event_btn_crear_cuentaActionPerformed
 
     /**
      * @param args the command line arguments
-     */ 
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -202,7 +199,7 @@ public class Abrir_cuenta_datos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField apellido_usuario1;
+    private javax.swing.JTextField apellidoUsuario;
     private javax.swing.JButton btn_crear_cuenta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -212,18 +209,16 @@ public class Abrir_cuenta_datos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField nom_usuario;
+    private javax.swing.JTextField nombreUsuario;
     // End of variables declaration//GEN-END:variables
 
     //poner icono
     @Override
-public Image getIconImage() {
-   Image retValue = Toolkit.getDefaultToolkit().
-         getImage(ClassLoader.getSystemResource("imagenes/bet365.png")); 
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("imagenes/bet365.png"));
 
-
-   return retValue;
-}
-
+        return retValue;
+    }
 
 }
