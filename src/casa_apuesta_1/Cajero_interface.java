@@ -32,6 +32,7 @@ import javax.swing.JCheckBox;
 public class Cajero_interface extends javax.swing.JFrame {
 //este es el cliente quien envia las peticiones al servidor
 
+    boolean banderaVal = true;
     //creacion de cliente
 //Host del servidor
     final String HOST = "127.0.0.1";
@@ -92,6 +93,7 @@ public class Cajero_interface extends javax.swing.JFrame {
         CANCELAR_APUESTA = new javax.swing.JButton();
         CONSULTAR_SALDO = new javax.swing.JButton();
         EVENTO_NULL = new javax.swing.JButton();
+        cerrarApuestas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -235,6 +237,13 @@ public class Cajero_interface extends javax.swing.JFrame {
             }
         });
 
+        cerrarApuestas.setText("Cerrar Apuestas");
+        cerrarApuestas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cerrarApuestasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -279,7 +288,9 @@ public class Cajero_interface extends javax.swing.JFrame {
                                             .addComponent(REALIZAR_APUESTA, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(EVENTO_NULL, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(80, 80, 80)
-                                        .addComponent(CARGA_AUTO, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(CARGA_AUTO, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cerrarApuestas, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(49, 49, 49))))))))
         );
         layout.setVerticalGroup(
@@ -311,11 +322,17 @@ public class Cajero_interface extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(RETIRAR_DINERO, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(CANCELAR_CUENTA_APUESTAS, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(7, 7, 7)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(REALIZAR_APUESTA, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CONSULTAR_SALDO, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(REALIZAR_APUESTA, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(CONSULTAR_SALDO, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(cerrarApuestas, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(CARGA_AUTO, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -742,9 +759,49 @@ public class Cajero_interface extends javax.swing.JFrame {
         }
     }
 
+    public void cerrar_Apuestas(String cu){
+         // TODO add your handling code here:
+         String c=cu;
+        
+       
+        try {
+             //Creo el socket para conectarme con el cliente
+            Socket sc = new Socket(HOST, PUERTO);
+
+            in = new DataInputStream(sc.getInputStream());
+            out = new DataOutputStream(sc.getOutputStream());
+
+            //Envio un mensaje al cliente
+
+            out.writeUTF(c); 
+            
+            String bandera = "";
+            int respuesta = JOptionPane.showConfirmDialog(this, "Esta seguro de Cerrar las Apuestas?", "Confirmacion", JOptionPane.YES_NO_OPTION);
+            
+            //validacion de cerra las apuestas
+            if(respuesta == JOptionPane.YES_OPTION){
+                bandera = "true";
+                banderaVal = false;
+            }else{
+                bandera = "false";
+            }
+            
+            out.writeUTF(bandera);
+            //Recibo el mensaje del servidor
+            String mensaje = in.readUTF();
+
+            System.out.println(mensaje);
+
+            sc.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(Cajero_interface.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     private void REALIZAR_APUESTAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_REALIZAR_APUESTAActionPerformed
         JCheckBox chec = new JCheckBox("Prueba");
+        if(banderaVal){
         int seleccion = JOptionPane.showOptionDialog(null, "Seleccione el tipo de apuesta: ",
                 "Selector de opciones", JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE, null,// null para icono por defecto.
@@ -774,9 +831,19 @@ public class Cajero_interface extends javax.swing.JFrame {
             csb.setVisible(true);
 
         }
-
+        }else{
+            JOptionPane.showMessageDialog(null, "Las Apuestas estan Cerradas");
+        }
 
     }//GEN-LAST:event_REALIZAR_APUESTAActionPerformed
+
+    private void cerrarApuestasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarApuestasActionPerformed
+        // TODO add your handling code here:
+        
+        if(cerrarApuestas.isVisible()){
+            cerrar_Apuestas("CERRAR");
+        }
+    }//GEN-LAST:event_cerrarApuestasActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -825,6 +892,7 @@ public class Cajero_interface extends javax.swing.JFrame {
     private javax.swing.JPanel NULL;
     private javax.swing.JButton REALIZAR_APUESTA;
     private javax.swing.JButton RETIRAR_DINERO;
+    private javax.swing.JButton cerrarApuestas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

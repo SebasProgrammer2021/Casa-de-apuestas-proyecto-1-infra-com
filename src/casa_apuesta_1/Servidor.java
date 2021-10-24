@@ -199,7 +199,7 @@ public class Servidor {
                                     //int numEntero = Integer.parseInt(va);
                                     //int aux = Integer.toString(numEntero).length();
                                     if (va.length() == 3) {
-                                         Apuesta nuevaApuesta = new Apuesta("TIPO_B", Integer.parseInt(va));
+                                        Apuesta nuevaApuesta = new Apuesta("TIPO_B", Integer.parseInt(va));
                                         apuesta.put(cuo, nuevaApuesta);
                                     } else {
                                         out.writeUTF("NUMERO APUESTA INVALIDA");
@@ -245,7 +245,7 @@ public class Servidor {
                                     //int numEntero = Integer.parseInt(va);
                                     //int aux = Integer.toString(numEntero).length();
                                     if (va.length() == 2) {
-                               Apuesta nuevaApuesta = new Apuesta("TIPO_C", Integer.parseInt(va));
+                                        Apuesta nuevaApuesta = new Apuesta("TIPO_C", Integer.parseInt(va));
                                         apuesta.put(cuo, nuevaApuesta);
                                     } else {
                                         out.writeUTF("NUMERO APUESTA INVALIDA");
@@ -407,7 +407,37 @@ public class Servidor {
                     }
                 }
 //-------------------------------------------FINALIZACION DEL PROCESO DE CONSULTA------------------------------------------
+//------------------------------------------- CONSULTA CERRAR APUESTAS ------------------------------------------
+                if ("CERRAR".equals(mensaje)) {
+                    try {
+                        System.out.println("servidor recibe: " + mensaje);
+                        //recibe datos de cliente en cuenta
 
+                        String aux = in.readUTF();
+
+                        boolean bandera = Boolean.parseBoolean(aux);
+
+                        //muestra datos de cliente
+                        System.out.println("entro cerrar apuestas");
+
+                        if (bandera) {
+                            System.out.println("No existen apuestas registradas");
+                            out.writeUTF("APUESTAS CERRADAS");
+
+                        } else {
+                            //cajero.notificacionCerrarAPuesta();
+                            out.writeUTF("APUESTAS ABIERTAS");
+                        }
+
+                    } catch (IOException ex) {
+                        out.writeUTF("OPERACION NO VALIDA");
+                        System.out.println(ex);
+
+                    }
+
+                }
+
+//-------------------------------------------FINALIZACION DEL PROCESO DE CONSULTA------------------------------------------
 //----------------------------------------------------ABRIR SORTEO-------------------------------------------------------------
 //!!!!!!!!!!!NOTA: ORGANIZAR Y TRABAJAR ESTE PROCESO          
 //                if ("ABRIR_SORTEO".equals(mensaje)) {
