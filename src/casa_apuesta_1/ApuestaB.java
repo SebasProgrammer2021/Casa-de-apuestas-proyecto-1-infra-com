@@ -2,45 +2,45 @@ package casa_apuesta_1;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import javax.swing.JOptionPane; 
+import javax.swing.JOptionPane;
 
-/**   
+/**
  *
  * @author Santiago Martinez Ayala
  */
 public class ApuestaB extends javax.swing.JFrame {
 
     /**
-     * Crea una forma de apuesta 
+     * Crea una forma de apuesta
      */
     public ApuestaB() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Realizar Apuesta_B");
 
-        JTF_NUMERO_APUESTA.addKeyListener(new KeyAdapter() {
-            public void keyTyped(KeyEvent e) {
-                char caracter = e.getKeyChar();
-
-                // Verificar si la tecla pulsada no es un digito
-                if (((caracter < '0') || (caracter > '9')) && (caracter != '\b' /*corresponde a un espacio*/)) {
-                   // ignorar el evento de teclado
-                    e.consume();  
-                }
-            }
-        });
-        JTF_CUENTAH_APUESTA.addKeyListener(new KeyAdapter() {
+        numeroApuesta.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
                 char caracter = e.getKeyChar();
 
                 // Verificar si la tecla pulsada no es un digito
                 if (((caracter < '0') || (caracter > '9')) && (caracter != '\b' /*corresponde a un espacio*/)) {
                     // ignorar el evento de teclado
-                    e.consume(); 
+                    e.consume();
                 }
             }
         });
-        
+        numeroCuenta.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e) {
+                char caracter = e.getKeyChar();
+
+                // Verificar si la tecla pulsada no es un digito
+                if (((caracter < '0') || (caracter > '9')) && (caracter != '\b' /*corresponde a un espacio*/)) {
+                    // ignorar el evento de teclado
+                    e.consume();
+                }
+            }
+        });
+
     }
 
     /**
@@ -54,13 +54,13 @@ public class ApuestaB extends javax.swing.JFrame {
 
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        JBT_REALIZAR_APUESTAb = new javax.swing.JButton();
-        JTF_CUENTAH_APUESTA = new javax.swing.JTextField();
+        btnRealizaApuesta = new javax.swing.JButton();
+        numeroCuenta = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        JTF_NUMERO_APUESTA = new javax.swing.JTextField();
+        numeroApuesta = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -71,24 +71,24 @@ public class ApuestaB extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 204, 51));
         jLabel7.setText("Recuerde que las cuentas son de 7 digitos.");
 
-        JBT_REALIZAR_APUESTAb.setBackground(new java.awt.Color(153, 255, 51));
-        JBT_REALIZAR_APUESTAb.setText("Realizar Apuesta");
-        JBT_REALIZAR_APUESTAb.addActionListener(new java.awt.event.ActionListener() {
+        btnRealizaApuesta.setBackground(new java.awt.Color(153, 255, 51));
+        btnRealizaApuesta.setText("Realizar Apuesta");
+        btnRealizaApuesta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBT_REALIZAR_APUESTAbActionPerformed(evt);
+                btnRealizaApuestaActionPerformed(evt);
             }
         });
 
-        JTF_CUENTAH_APUESTA.setBackground(new java.awt.Color(153, 255, 153));
-        JTF_CUENTAH_APUESTA.setForeground(new java.awt.Color(0, 153, 0));
-        JTF_CUENTAH_APUESTA.addActionListener(new java.awt.event.ActionListener() {
+        numeroCuenta.setBackground(new java.awt.Color(153, 255, 153));
+        numeroCuenta.setForeground(new java.awt.Color(0, 153, 0));
+        numeroCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTF_CUENTAH_APUESTAActionPerformed(evt);
+                numeroCuentaActionPerformed(evt);
             }
         });
-        JTF_CUENTAH_APUESTA.addKeyListener(new java.awt.event.KeyAdapter() {
+        numeroCuenta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                JTF_CUENTAH_APUESTAKeyTyped(evt);
+                numeroCuentaKeyTyped(evt);
             }
         });
 
@@ -103,16 +103,16 @@ public class ApuestaB extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(0, 204, 51));
         jLabel9.setText("Debe constar con saldo suficiente y una cuenta si no es asi cree una.");
 
-        JTF_NUMERO_APUESTA.setBackground(new java.awt.Color(153, 255, 153));
-        JTF_NUMERO_APUESTA.setForeground(new java.awt.Color(0, 153, 0));
-        JTF_NUMERO_APUESTA.addActionListener(new java.awt.event.ActionListener() {
+        numeroApuesta.setBackground(new java.awt.Color(153, 255, 153));
+        numeroApuesta.setForeground(new java.awt.Color(0, 153, 0));
+        numeroApuesta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTF_NUMERO_APUESTAActionPerformed(evt);
+                numeroApuestaActionPerformed(evt);
             }
         });
-        JTF_NUMERO_APUESTA.addKeyListener(new java.awt.event.KeyAdapter() {
+        numeroApuesta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                JTF_NUMERO_APUESTAKeyTyped(evt);
+                numeroApuestaKeyTyped(evt);
             }
         });
 
@@ -137,13 +137,13 @@ public class ApuestaB extends javax.swing.JFrame {
                                     .addComponent(jLabel8))
                                 .addGap(23, 23, 23)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(JTF_CUENTAH_APUESTA)
-                                    .addComponent(JTF_NUMERO_APUESTA, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(numeroCuenta)
+                                    .addComponent(numeroApuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(95, 95, 95))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(170, 170, 170)
-                .addComponent(JBT_REALIZAR_APUESTAb, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRealizaApuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -161,52 +161,56 @@ public class ApuestaB extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(JTF_CUENTAH_APUESTA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(numeroCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JTF_NUMERO_APUESTA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(numeroApuesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(JBT_REALIZAR_APUESTAb, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRealizaApuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JBT_REALIZAR_APUESTAbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBT_REALIZAR_APUESTAbActionPerformed
+    private void btnRealizaApuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRealizaApuestaActionPerformed
         // TODO add your handling code here:
-        Cajero_interface cjjjjj = new Cajero_interface();
-        if(JTF_CUENTAH_APUESTA.getText().length()>=6 && JTF_NUMERO_APUESTA.getText().length() !=0){
-            cjjjjj.realizarApuesta(JTF_CUENTAH_APUESTA.getText(),JTF_NUMERO_APUESTA.getText());
+        Cajero_interface cajero = new Cajero_interface();
+        if (numeroCuenta.getText().length() >= 6 && numeroApuesta.getText().length() != 0) {
+            cajero.realizarApuesta(numeroCuenta.getText(), "B", numeroApuesta.getText());
             this.dispose();
 
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "llene todos los campos ");
         }
-    }//GEN-LAST:event_JBT_REALIZAR_APUESTAbActionPerformed
+    }//GEN-LAST:event_btnRealizaApuestaActionPerformed
 
-    private void JTF_CUENTAH_APUESTAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_CUENTAH_APUESTAActionPerformed
+    private void numeroCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroCuentaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JTF_CUENTAH_APUESTAActionPerformed
+    }//GEN-LAST:event_numeroCuentaActionPerformed
 
-    private void JTF_CUENTAH_APUESTAKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTF_CUENTAH_APUESTAKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTF_CUENTAH_APUESTAKeyTyped
+    private void numeroCuentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroCuentaKeyTyped
+        if (numeroCuenta.getText().length() > 6) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_numeroCuentaKeyTyped
 
-    private void JTF_NUMERO_APUESTAKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTF_NUMERO_APUESTAKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTF_NUMERO_APUESTAKeyTyped
+    private void numeroApuestaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroApuestaKeyTyped
+        if (numeroApuesta.getText().length() > 2) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_numeroApuestaKeyTyped
 
-    private void JTF_NUMERO_APUESTAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_NUMERO_APUESTAActionPerformed
+    private void numeroApuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroApuestaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JTF_NUMERO_APUESTAActionPerformed
+    }//GEN-LAST:event_numeroApuestaActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -233,16 +237,16 @@ public class ApuestaB extends javax.swing.JFrame {
             }
         });
     }
- 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBT_REALIZAR_APUESTAb;
-    private javax.swing.JTextField JTF_CUENTAH_APUESTA;
-    private javax.swing.JTextField JTF_NUMERO_APUESTA;
+    private javax.swing.JButton btnRealizaApuesta;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField numeroApuesta;
+    private javax.swing.JTextField numeroCuenta;
     // End of variables declaration//GEN-END:variables
 }

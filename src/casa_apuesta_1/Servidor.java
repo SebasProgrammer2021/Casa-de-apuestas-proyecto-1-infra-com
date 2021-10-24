@@ -105,6 +105,9 @@ public class Servidor {
                         Random random = new Random();
                         int randomNumber = (random.nextInt(955369));//int randomNumber = (random.nextInt(955369)); se crea una cuenta con  saldo en 0 y un numeto de cuenta ramdon que inica en 1
                         String cuenta = "1" + Integer.toString(randomNumber);
+                        if (cuenta.length() == 5) {
+                            cuenta = cuenta + "1";
+                        }
 
                         //guardo en hashmap
                         if (!CuentasApuestas.containsKey(nombreCliente)) {
@@ -137,10 +140,9 @@ public class Servidor {
                      try {
                         //recibe datos de cliente en cuenta
                         String cuo = in.readUTF();
-                        //String cud = in.readUTF();
                         String va  = in.readUTF();
 
-                        if (CuentasApuestas.containsValue(cuo) && saldoCuentas.containsKey(cuo) && va.length() == 4) {
+                        if (CuentasApuestas.containsValue(cuo) && saldoCuentas.containsKey(cuo)) {
                             if (va.length() == 4) {
                                 //descontar de la cuenta de origen
                                 for (String s : saldoCuentas.keySet()) {
@@ -173,105 +175,110 @@ public class Servidor {
                     }
                     break;
                     case "APOSTAR_TIPO_B":
-                        try {
-                        System.out.println("servidor recibe: " + mensaje);
+                    try {
                         //recibe datos de cliente en cuenta
                         String cuo = in.readUTF();
-                        //String cud = in.readUTF();
                         String va  = in.readUTF();
-                        System.out.println(cuo + va);
 
-                        //muestra datos de cliente
-                        System.out.println(cuo + "servidor");
+                        if (CuentasApuestas.containsValue(cuo) && saldoCuentas.containsKey(cuo)) {
+                            System.err.println("va"+(va.length() == 3));
+                            if (va.length() == 3) {
+                                //descontar de la cuenta de origen
+                                for (String s : saldoCuentas.keySet()) {
+                                    if (s.equals(cuo) && saldoCuentas.get(s) >= VALOR_APUESTA) {
+                                        int saldo = 0;
+                                        saldo = saldoCuentas.get(s) - VALOR_APUESTA;
+                                        saldoCuentas.put(cuo, saldo);
 
-                        if (CuentasApuestas.containsValue(cuo) && saldoCuentas.containsKey(cuo) && apuesta.containsKey(cuo)) {
-                            System.out.println("si existe cuenta cuo");
-
-                            //descontar de la cuenta de origen
-                            for (String s : saldoCuentas.keySet()) {
-                                if (s.equals(cuo) && saldoCuentas.get(s) >= Integer.parseInt(va)) {
-                                    int saldo = 0;
-                                    saldo = saldoCuentas.get(s) - Integer.parseInt(va);
-                                    System.out.println(saldoCuentas.get(s));
-                                    saldoCuentas.put(cuo, saldo);
-                                    System.out.println("saldo****** " + saldo);
-
-                                    //int numEntero = Integer.parseInt(va);
-                                    //int aux = Integer.toString(numEntero).length();
-                                    if (va.length() == 3) {
                                         Apuesta nuevaApuesta = new Apuesta("TIPO_B", Integer.parseInt(va));
                                         apuesta.put(cuo, nuevaApuesta);
+
+                                        String notificationMsg = "La apuesta se realizo exitosamente\n\n"
+                                                + "Cuenta: " + cuo
+                                                + "\nNuevo saldo de su cuenta : " + saldo
+                                                + "\nNumero apuesta: " + va ;
+                                        notificar(notificationMsg);
                                     } else {
-                                        out.writeUTF("NUMERO APUESTA INVALIDA");
-                                        System.out.println("NUMERO APUESTA INVALIDA");
+                                        notificar("FONDOS INSUFICIENTES");
                                     }
-                                } else {
-                                    out.writeUTF("FONDOS INSUFICIENTES");
                                 }
+                            } else {
+                                notificar("El numero de la apuesta no es valido " + cuo);
                             }
-
                         } else {
-                            out.writeUTF("ESTA CUENTA NO TIENE APUESTA CREE UNA" + cuo);
+                            notificar("La cuenta no existe " + cuo);
                         }
-
                     } catch (IOException ex) {
                         out.writeUTF("¡transacción erronea");
                         System.out.println(ex);
                     }
                     break;
                     case "APOSTAR_TIPO_C":
-                        try {
-                        System.out.println("servidor recibe: " + mensaje);
+                     try {
                         //recibe datos de cliente en cuenta
                         String cuo = in.readUTF();
-                        //String cud = in.readUTF();
                         String va  = in.readUTF();
-                        System.out.println(cuo + va);
 
-                        //muestra datos de cliente
-                        System.out.println(cuo + "servidor");
+                        if (CuentasApuestas.containsValue(cuo) && saldoCuentas.containsKey(cuo)) {
+                            if (va.length() == 2) {
+                                //descontar de la cuenta de origen
+                                for (String s : saldoCuentas.keySet()) {
+                                    if (s.equals(cuo) && saldoCuentas.get(s) >= VALOR_APUESTA) {
+                                        int saldo = 0;
+                                        saldo = saldoCuentas.get(s) - VALOR_APUESTA;
+                                        saldoCuentas.put(cuo, saldo);
 
-                        if (CuentasApuestas.containsValue(cuo) && saldoCuentas.containsKey(cuo) && apuesta.containsKey(cuo)) {
-                            System.out.println("si existe cuenta cuo");
-
-                            //descontar de la cuenta de origen
-                            for (String s : saldoCuentas.keySet()) {
-                                if (s.equals(cuo) && saldoCuentas.get(s) >= Integer.parseInt(va)) {
-                                    int saldo = 0;
-                                    saldo = saldoCuentas.get(s) - Integer.parseInt(va);
-                                    System.out.println(saldoCuentas.get(s));
-                                    saldoCuentas.put(cuo, saldo);
-                                    System.out.println("saldo****** " + saldo);
-                                    //int numEntero = Integer.parseInt(va);
-                                    //int aux = Integer.toString(numEntero).length();
-                                    if (va.length() == 2) {
                                         Apuesta nuevaApuesta = new Apuesta("TIPO_C", Integer.parseInt(va));
                                         apuesta.put(cuo, nuevaApuesta);
+
+                                        String notificationMsg = "La apuesta se realizo exitosamente\n\n"
+                                                + "Cuenta: " + cuo
+                                                + "\nNuevo saldo de su cuenta : " + saldo
+                                                + "\nNumero apuesta: " + va ;
+                                        notificar(notificationMsg);
                                     } else {
-                                        out.writeUTF("NUMERO APUESTA INVALIDA");
-                                        System.out.println("NUMERO APUESTA INVALIDA");
+                                        notificar("FONDOS INSUFICIENTES");
                                     }
-                                } else {
-                                    out.writeUTF("FONDOS INSUFICIENTES");
                                 }
+                            } else {
+                                notificar("El numero de la apuesta no es valido " + cuo);
                             }
-
                         } else {
-                            out.writeUTF("ESTA CUENTA NO TIENE APUESTA CREE UNA" + cuo);
+                            notificar("La cuenta no existe " + cuo);
                         }
-
                     } catch (IOException ex) {
                         out.writeUTF("¡transacción erronea");
                         System.out.println(ex);
-
                     }
+
                     break;
                     case "CANCELAR":
 
                         break;
-                    case "CONSULTAR_SALDO":
+                    //--------------------------------------------CONSULTAR SALDO CUENTA----------------------------------------------
+                    case "CONSULTAR":
+                        try {
+                        //recibe datos de cliente en cuenta
+                        String cu = in.readUTF();
+                        System.out.println(cu);
 
-                        break;
+                        if (CuentasApuestas.containsValue(cu) && saldoCuentas.containsKey(cu)) {
+                            System.out.println("si existe cuenta");
+                            for (String s : saldoCuentas.keySet()) {
+                                if (s.equals(cu)) {
+                                    out.writeUTF("Su saldo es de: " + saldoCuentas.get(s) + " Cuenta: " + cu);
+                                } else {
+                                    out.writeUTF("ERROR DE CUENTA: ");
+                                }
+                            }
+                        } else {
+                            out.writeUTF("Cuenta: " + cu + " no existente");
+                        }
+                    } catch (IOException ex) {
+                        out.writeUTF("¡transacción erronea");
+                        System.out.println(ex);
+                    }
+                    break;
                     case "CREAR_CUENTA":
 
                         break;
@@ -367,18 +374,6 @@ public class Servidor {
                 }
 
 //---------------------------------------FINALIZACION DEL PROCESO DE CANCELAR CUENTA--------------------------------------               
-//------------------------------------------APUESTA DE TIPO B--------------------------------------------------------
-//                if ("APOSTAR_TIPO_B".equals(mensaje)) {
-//                  
-//
-//                }
-//-------------------------------FINALIZACION DEL PROCESO DE APUESTA DE TIPO B----------------------------------------------------------                    
-////------------------------------------------APUESTA DE TIPO C-------------------------------------------------------------
-//                if ("APOSTAR_TIPO_C".equals(mensaje)) {
-//                   
-//
-//                }
-//-------------------------------FINALIZACION DEL PROCESO DE APUESTA DE TIPO C----------------------------------------------------------                    
 //-----------------------------------------CONSULTAR DATOS ACTUALES-------------------------------------------------
 //si el mensaje del cliente es este se ejecuta esta orden de comandos
                 if ("CONSULTAR_DATOS_ACTUALES".equals(mensaje)) {
@@ -506,42 +501,6 @@ public class Servidor {
                 }
 //--------------------------------------------FINALIZACION PROCESO DE CANCELAR APUESTA---------------------------------               
 
-//--------------------------------------------CONSULTAR SALDO CUENTA----------------------------------------------
-                if ("CONSULTAR".equals(mensaje)) {
-
-                    try {
-                        System.out.println("servidor recibe: " + mensaje);
-                        //recibe datos de cliente en cuenta
-                        String cu = in.readUTF();
-
-                        System.out.println(cu);
-
-                        //muestra datos de cliente
-                        System.out.println(cu + "servidor");
-
-                        if (CuentasApuestas.containsValue(cu) && saldoCuentas.containsKey(cu)) {
-                            System.out.println("si existe cuenta");
-                            for (String s : saldoCuentas.keySet()) {
-                                if (s.equals(cu)) {
-                                    out.writeUTF("Su saldo es de: " + saldoCuentas.get(s) + " Cuenta: " + cu);
-                                } else {
-                                    out.writeUTF("ERROR DE CUENTA: ");
-                                }
-                            }
-
-                        } else {
-                            out.writeUTF("Cuenta: " + cu + " no existente");
-                        }
-
-                    } catch (IOException ex) {
-                        out.writeUTF("¡transacción erronea");
-                        System.out.println(ex);
-
-                    }
-
-                }
-
-//-----------------------------------FINALIZACION DEL PROCESO DE CONSULTA---------------------------------------------                
 //----------------------------------------CONSULTAR APUESTA-----------------------------------------------
 //!!!!!!!NOTA:PROCESO SOBRANTE
                 if ("CONSULTAR_APUESTA".equals(mensaje)) {

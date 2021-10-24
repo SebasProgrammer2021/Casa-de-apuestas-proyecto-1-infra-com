@@ -462,7 +462,7 @@ public class Cajero_interface extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Abrir_cuentaActionPerformed
 
-    public void realizarApuesta(String _numeroCuenta, String _numeroApuesta) {
+    public void realizarApuesta(String _numeroCuenta, String tipo, String _numeroApuesta) {
         String numeroCuenta = _numeroCuenta;
         String numeroApuesta = _numeroApuesta;
 
@@ -472,11 +472,23 @@ public class Cajero_interface extends javax.swing.JFrame {
 
             in = new DataInputStream(sc.getInputStream());
             out = new DataOutputStream(sc.getOutputStream());
-
-            //Envio un mensaje al cliente
-            out.writeUTF("APOSTAR_TIPO_A");// out.writeUTF("TRASLADAR"); 
-            out.writeUTF(numeroCuenta);
-            out.writeUTF(numeroApuesta);
+            switch (tipo) {
+                case "A":
+                    out.writeUTF("APOSTAR_TIPO_A");
+                    out.writeUTF(numeroCuenta);
+                    out.writeUTF(numeroApuesta);
+                    break;
+                case "B":
+                    out.writeUTF("APOSTAR_TIPO_B");
+                    out.writeUTF(numeroCuenta);
+                    out.writeUTF(numeroApuesta);
+                    break;
+                case "C":
+                    out.writeUTF("APOSTAR_TIPO_C");
+                    out.writeUTF(numeroCuenta);
+                    out.writeUTF(numeroApuesta);
+                    break;
+            }
 
             //Recibo el mensaje del servidor
             String mensaje = in.readUTF();
@@ -759,33 +771,31 @@ public class Cajero_interface extends javax.swing.JFrame {
         }
     }
 
-    public void cerrar_Apuestas(String cu){
-         // TODO add your handling code here:
-         String c=cu;
-        
-       
+    public void cerrar_Apuestas(String cu) {
+        // TODO add your handling code here:
+        String c = cu;
+
         try {
-             //Creo el socket para conectarme con el cliente
+            //Creo el socket para conectarme con el cliente
             Socket sc = new Socket(HOST, PUERTO);
 
             in = new DataInputStream(sc.getInputStream());
             out = new DataOutputStream(sc.getOutputStream());
 
             //Envio un mensaje al cliente
+            out.writeUTF(c);
 
-            out.writeUTF(c); 
-            
             String bandera = "";
             int respuesta = JOptionPane.showConfirmDialog(this, "Esta seguro de Cerrar las Apuestas?", "Confirmacion", JOptionPane.YES_NO_OPTION);
-            
+
             //validacion de cerra las apuestas
-            if(respuesta == JOptionPane.YES_OPTION){
+            if (respuesta == JOptionPane.YES_OPTION) {
                 bandera = "true";
                 banderaVal = false;
-            }else{
+            } else {
                 bandera = "false";
             }
-            
+
             out.writeUTF(bandera);
             //Recibo el mensaje del servidor
             String mensaje = in.readUTF();
@@ -801,37 +811,37 @@ public class Cajero_interface extends javax.swing.JFrame {
 
     private void REALIZAR_APUESTAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_REALIZAR_APUESTAActionPerformed
         JCheckBox chec = new JCheckBox("Prueba");
-        if(banderaVal){
-        int seleccion = JOptionPane.showOptionDialog(null, "Seleccione el tipo de apuesta: ",
-                "Selector de opciones", JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE, null,// null para icono por defecto.
-                new Object[]{"Apuesta tipo A (4 últimas cifras en orden estricto).",
-                     "Apuesta tipo B (3 últimas cifras en orden estricto).",
-                     "Apuesta tipo C (2 últimas cifras en orden estricto)."},
-                 "SALIR");
+        if (banderaVal) {
+            int seleccion = JOptionPane.showOptionDialog(null, "Seleccione el tipo de apuesta: ",
+                    "Selector de opciones", JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE, null,// null para icono por defecto.
+                    new Object[]{"Apuesta tipo A (4 cifras).",
+                        "Apuesta tipo B (3 cifras).",
+                        "Apuesta tipo C (2 cifras)."},
+                    "SALIR");
 
-        if (seleccion == 2) {
-            System.out.println("seleccionada opcion " + seleccion);
-            ApuestaC csb = new ApuestaC();
-            csb.setVisible(true);
+            if (seleccion == 2) {
+                System.out.println("seleccionada opcion " + seleccion);
+                ApuestaC csb = new ApuestaC();
+                csb.setVisible(true);
 
+            } else {
+                System.out.println("SELECCIONADO NADA" + seleccion);
+
+            }
+            if (seleccion == 1) {
+                System.out.println("seleccionada opcion " + seleccion);
+                ApuestaB csb = new ApuestaB();
+                csb.setVisible(true);
+
+            }
+            if (seleccion == 0) {
+                System.out.println("seleccionada opcion " + seleccion);
+                ApuestaA csb = new ApuestaA();
+                csb.setVisible(true);
+
+            }
         } else {
-            System.out.println("SELECCIONADO NADA" + seleccion);
-
-        }
-        if (seleccion == 1) {
-            System.out.println("seleccionada opcion " + seleccion);
-            ApuestaB csb = new ApuestaB();
-            csb.setVisible(true);
-
-        }
-        if (seleccion == 0) {
-            System.out.println("seleccionada opcion " + seleccion);
-            ApuestaA csb = new ApuestaA();
-            csb.setVisible(true);
-
-        }
-        }else{
             JOptionPane.showMessageDialog(null, "Las Apuestas estan Cerradas");
         }
 
@@ -839,8 +849,8 @@ public class Cajero_interface extends javax.swing.JFrame {
 
     private void cerrarApuestasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarApuestasActionPerformed
         // TODO add your handling code here:
-        
-        if(cerrarApuestas.isVisible()){
+
+        if (cerrarApuestas.isVisible()) {
             cerrar_Apuestas("CERRAR");
         }
     }//GEN-LAST:event_cerrarApuestasActionPerformed

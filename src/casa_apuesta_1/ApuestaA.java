@@ -171,7 +171,7 @@ public class ApuestaA extends javax.swing.JFrame {
         // TODO add your handling code here:
         Cajero_interface cajero = new Cajero_interface();
         if (numeroCuenta.getText().length() >= 6 && numeroApuesta.getText().length() != 0) {
-            cajero.realizarApuesta(numeroCuenta.getText(), numeroApuesta.getText());
+            cajero.realizarApuesta(numeroCuenta.getText(), "A", numeroApuesta.getText());
             this.dispose();
 
         } else {
@@ -190,7 +190,7 @@ public class ApuestaA extends javax.swing.JFrame {
     }//GEN-LAST:event_numeroCuentaKeyTyped
 
     private void numeroApuestaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroApuestaKeyTyped
-     if (numeroApuesta.getText().length() > 3) {
+        if (numeroApuesta.getText().length() > 3) {
             evt.consume();
         }
     }//GEN-LAST:event_numeroApuestaKeyTyped
