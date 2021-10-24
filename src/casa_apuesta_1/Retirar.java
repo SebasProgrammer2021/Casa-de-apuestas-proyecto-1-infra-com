@@ -185,9 +185,7 @@ public class Retirar extends javax.swing.JFrame {
     }//GEN-LAST:event_numeroCuentaActionPerformed
 
     private void numeroCuentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroCuentaKeyTyped
-         if (numeroCuenta.getText().length() > 6) {
-            evt.consume();
-        }
+ 
     }//GEN-LAST:event_numeroCuentaKeyTyped
 
     private void JTF_VALOR_RETIRARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_VALOR_RETIRARActionPerformed

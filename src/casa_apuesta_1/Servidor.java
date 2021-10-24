@@ -105,9 +105,6 @@ public class Servidor {
                         Random random = new Random();
                         int randomNumber = (random.nextInt(955369));//int randomNumber = (random.nextInt(955369)); se crea una cuenta con  saldo en 0 y un numeto de cuenta ramdon que inica en 1
                         String cuenta = "1" + Integer.toString(randomNumber);
-                        if (cuenta.length() == 5) {
-                            cuenta = cuenta + "1";
-                        }
 
                         //guardo en hashmap
                         if (!CuentasApuestas.containsKey(nombreCliente)) {

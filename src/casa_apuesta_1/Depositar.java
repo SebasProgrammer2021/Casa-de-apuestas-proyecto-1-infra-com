@@ -21,17 +21,10 @@ public class Depositar extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("DEPOSITAR CUENTA");
-        btnDepositar.setEnabled(false);
 
         numeroCuenta.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
                 char caracter = e.getKeyChar();
-
-                if (numeroCuenta.getText().length() == 6) {
-                    btnDepositar.setEnabled(true);
-                } else {
-                    btnDepositar.setEnabled(false);
-                }
 
                 // Verificar si la tecla pulsada no es un digito
                 if (((caracter < '0') || (caracter > '9')) && (caracter != '\b' /*corresponde a un espacio*/)) {
@@ -199,9 +192,7 @@ public class Depositar extends javax.swing.JFrame {
     }//GEN-LAST:event_numeroCuentaActionPerformed
 
     private void numeroCuentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroCuentaKeyTyped
-        if (numeroCuenta.getText().length() > 6) {
-            evt.consume();
-        }
+ 
     }//GEN-LAST:event_numeroCuentaKeyTyped
 
     private void cantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadActionPerformed

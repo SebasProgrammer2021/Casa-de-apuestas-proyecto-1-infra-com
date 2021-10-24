@@ -191,9 +191,7 @@ public class ApuestaC extends javax.swing.JFrame {
     }//GEN-LAST:event_numeroCuentaActionPerformed
 
     private void numeroCuentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroCuentaKeyTyped
-        if (numeroCuenta.getText().length() > 6) {
-            evt.consume();
-        }
+
     }//GEN-LAST:event_numeroCuentaKeyTyped
 
     private void numeroApuestaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroApuestaKeyTyped
