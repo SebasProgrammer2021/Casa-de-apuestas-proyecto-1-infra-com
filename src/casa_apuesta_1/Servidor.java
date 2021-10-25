@@ -23,7 +23,9 @@ import static javax.swing.UIManager.get;
 
 /**
  *
- * @author Santiago Martinez Ayala
+ * @author Rodrigo Acosta Restrepo.
+ * @author Juan Sebastián Tobón.
+ * @author Sebastián Londoño Valencia.
  */
 public class Servidor {
 
@@ -178,7 +180,7 @@ public class Servidor {
                         String va  = in.readUTF();
 
                         if (CuentasApuestas.containsValue(cuo) && saldoCuentas.containsKey(cuo)) {
-                            System.err.println("va"+(va.length() == 3));
+                            System.err.println("va" + (va.length() == 3));
                             if (va.length() == 3) {
                                 //descontar de la cuenta de origen
                                 for (String s : saldoCuentas.keySet()) {
@@ -257,17 +259,13 @@ public class Servidor {
                         try {
                         //recibe datos de cliente en cuenta
                         String cu = in.readUTF();
-                        System.out.println(cu);
 
-                        if (CuentasApuestas.containsValue(cu) && saldoCuentas.containsKey(cu)) {
-                            System.out.println("si existe cuenta");
-                            for (String s : saldoCuentas.keySet()) {
-                                if (s.equals(cu)) {
-                                    out.writeUTF("Su saldo es de: " + saldoCuentas.get(s) + " Cuenta: " + cu);
+                            if (CuentasApuestas.containsValue(cu)) {
+                                if (saldoCuentas.containsKey(cu)) {
+                                    out.writeUTF("Su saldo es de: " + saldoCuentas.get(cu) + " Cuenta: " + cu);
                                 } else {
                                     out.writeUTF("ERROR DE CUENTA: ");
                                 }
-                            }
                         } else {
                             out.writeUTF("Cuenta: " + cu + " no existente");
                         }
@@ -284,28 +282,22 @@ public class Servidor {
                         break;
                     case "RETIRAR":
                         try {
-                        System.out.println("servidor recibe: " + mensaje);
                         //recibe datos de cliente en cuenta
                         String cu = in.readUTF();
                         String va  = in.readUTF();
-                        System.out.println(cu + va);
-
-                        //muestra datos de cliente
-                        System.out.println(cu + "servidor");
 
                         if (CuentasApuestas.containsValue(cu) && saldoCuentas.containsKey(cu)) {
-                            System.out.println("si existe cuenta");
                             for (String s : saldoCuentas.keySet()) {
                                 if (s.equals(cu) && saldoCuentas.get(s) >= Integer.parseInt(va)) {
                                     int saldo = saldoCuentas.get(s) - Integer.parseInt(va);
                                     saldoCuentas.put(cu, saldo);
                                     out.writeUTF("Retiró " + va  + " de su cuenta: " + cu);
                                 } else {
-                                    out.writeUTF("Fondos insuficientes... ");
+                                    out.writeUTF("Fondos insuficientes.");
                                 }
                             }
                         } else {
-                            out.writeUTF("Cuenta: " + cu + " no existente");
+                            out.writeUTF("La cuenta: " + cu + " no existe.");
                         }
                     } catch (IOException ex) {
                         out.writeUTF("¡transacción erronea");
@@ -339,28 +331,14 @@ public class Servidor {
                             }
                         }
 
-                        if (CuentasApuestas.containsValue(cc) && sal != true) {
-                            System.out.println("si existe");
-
-                            if (!apuesta.containsKey(cc)) {
-
-                                //ELIMINAR CUENTA
-                                //ITERADOR PARA FUNCIONES DE BORRADO SIN LA KEY 
-                                Iterator<HashMap.Entry<String, String>> iter = CuentasApuestas.entrySet().iterator();
-                                while (iter.hasNext()) {
-                                    Map.Entry<String, String> entry = iter.next();
-                                    if (cc.equalsIgnoreCase(entry.getValue())) {
-                                        iter.remove();
-                                        System.out.println("entre al while");
-                                        out.writeUTF("La cuenta : " + cc + " ha sido eliminada exitosamente.");
-                                    }
-                                }
-                            } else {
-                                System.out.println("Tiene apuesta");
-                                out.writeUTF("La cuenta esta vinculada a una apuesta no se puede eliminar.");
+                        Iterator<HashMap.Entry<String, String>> iter = CuentasApuestas.entrySet().iterator();
+                        while (iter.hasNext()) {
+                            Map.Entry<String, String> entry = iter.next();
+                            if (cc.equalsIgnoreCase(entry.getValue())) {
+                                iter.remove();
+                                System.out.println("entre al while");
+                                out.writeUTF("La cuenta : " + cc + " ha sido eliminada exitosamente.");
                             }
-                        } else {
-                            out.writeUTF("Cuenta: " + cc + " no existente");
                         }
 
                     } catch (IOException ex) {

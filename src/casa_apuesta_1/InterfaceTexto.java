@@ -15,7 +15,9 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author roaco
+ * @author Rodrigo Acosta Restrepo.
+ * @author Juan Sebastián Tobón.
+ * @author Sebastián Londoño Valencia.
  */
 public class InterfaceTexto {
 

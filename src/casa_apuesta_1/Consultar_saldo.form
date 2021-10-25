@@ -33,18 +33,18 @@
                           <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="93" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="10" max="32767" attributes="0"/>
               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="JBT_Consultar" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTF_CUENTA_Bconsultar" min="-2" pref="201" max="-2" attributes="0"/>
+                  <Component id="bntConsultar" min="-2" max="-2" attributes="0"/>
+                  <Component id="numeroCuenta" min="-2" pref="201" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
           </Group>
@@ -61,11 +61,11 @@
               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="26" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JTF_CUENTA_Bconsultar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="numeroCuenta" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="JBT_Consultar" min="-2" pref="37" max="-2" attributes="0"/>
+              <Component id="bntConsultar" min="-2" pref="37" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -74,7 +74,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cuenta:"/>
+        <Property name="text" type="java.lang.String" value="Numero cuenta:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
@@ -93,7 +93,7 @@
         <Property name="text" type="java.lang.String" value="Recuerde que las cuentas de son de 7 digitos "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="JBT_Consultar">
+    <Component class="javax.swing.JButton" name="bntConsultar">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="ff" red="99" type="rgb"/>
@@ -101,10 +101,10 @@
         <Property name="text" type="java.lang.String" value="CONSULTAR SALDO"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBT_ConsultarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bntConsultarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="JTF_CUENTA_Bconsultar">
+    <Component class="javax.swing.JTextField" name="numeroCuenta">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="ff" red="99" type="rgb"/>
@@ -114,8 +114,8 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTF_CUENTA_BconsultarActionPerformed"/>
-        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTF_CUENTA_BconsultarKeyTyped"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="numeroCuentaActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="numeroCuentaKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
