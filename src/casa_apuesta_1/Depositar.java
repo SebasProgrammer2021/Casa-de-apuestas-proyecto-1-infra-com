@@ -76,7 +76,8 @@ public class Depositar extends javax.swing.JFrame {
 
         jLabel7.setText("Recuerde el numero de la cuenta a la que va a depositar.");
 
-        btnDepositar.setBackground(new java.awt.Color(153, 255, 51));
+        btnDepositar.setBackground(new java.awt.Color(0, 0, 0));
+        btnDepositar.setForeground(new java.awt.Color(255, 255, 255));
         btnDepositar.setText("DEPOSITAR");
         btnDepositar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

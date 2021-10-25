@@ -50,6 +50,8 @@ public class Cajero_interface extends javax.swing.JFrame {
     public Cajero_interface() {
 
         initComponents();
+        //Color JFrame
+        this.getContentPane().setBackground(Color.black);
         this.setLocationRelativeTo(null);
         this.setTitle("APUESTAS MINICOMBO");
 
@@ -179,8 +181,9 @@ public class Cajero_interface extends javax.swing.JFrame {
         );
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
-        jLabel1.setText("EL MINICOMBO APUESTAS");
+        jLabel1.setFont(new java.awt.Font("Lucida Calligraphy", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("APUESTAS EL MINICOMBO");
         jLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         Abrir_cuenta.setBackground(new java.awt.Color(0, 0, 0));
@@ -248,9 +251,9 @@ public class Cajero_interface extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(77, 77, 77)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
                         .addComponent(NULL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
@@ -280,15 +283,14 @@ public class Cajero_interface extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel1))
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NULL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(NULL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(118, 118, 118)
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(133, 133, 133)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Abrir_cuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CANCELAR_CUENTA_APUESTAS, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -309,7 +311,7 @@ public class Cajero_interface extends javax.swing.JFrame {
                             .addComponent(cerrarApuestas, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                         .addComponent(JTF_FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(239, 239, 239))))
         );
@@ -560,7 +562,6 @@ public class Cajero_interface extends javax.swing.JFrame {
 
     private void cerrarApuestasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarApuestasActionPerformed
         // TODO add your handling code here:
-
         if (cerrarApuestas.isVisible()) {
             cerrar_Apuestas("CERRAR");
         }
@@ -572,8 +573,8 @@ public class Cajero_interface extends javax.swing.JFrame {
     }//GEN-LAST:event_CONSULTAR_SALDOActionPerformed
 
     private void CANCELAR_APUESTAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCELAR_APUESTAActionPerformed
-        Cancelar_null cacel = new Cancelar_null();
-        cacel.setVisible(true);
+        Cancelar_apuesta cancel = new Cancelar_apuesta();
+        cancel.setVisible(true);
     }//GEN-LAST:event_CANCELAR_APUESTAActionPerformed
 
     private void REALIZAR_APUESTAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_REALIZAR_APUESTAActionPerformed
@@ -791,31 +792,27 @@ public class Cajero_interface extends javax.swing.JFrame {
 
             //Envio un mensaje al cliente
             out.writeUTF(c);
-
-            String bandera = "";
-            int respuesta = JOptionPane.showConfirmDialog(this, "Esta seguro de Cerrar las Apuestas?", "Confirmacion", JOptionPane.YES_NO_OPTION);
-
-            //validacion de cerra las apuestas
-            if (respuesta == JOptionPane.YES_OPTION) {
-                bandera = "true";
-                banderaVal = false;
+            String msg = in.readUTF();
+            System.out.println("msg"+msg);
+            boolean bandera = Boolean.parseBoolean(msg);
+            if (bandera) {
+                int respuestaServidor = JOptionPane.showConfirmDialog(this, "No se han registrado apuestas, Desea cerrar las Apuestas?", "Confirmacion", JOptionPane.YES_NO_OPTION);
+                        if (respuestaServidor == JOptionPane.YES_OPTION) {
+                            banderaVal = false;
+                            System.out.println("Apuestas Cerradas");
+                             JOptionPane.showMessageDialog(this, "Apuestas Cerradas");
+                        }
             } else {
-                bandera = "false";
+                banderaVal = false;
+                System.out.println("Apuestas Cerradas");
+                JOptionPane.showMessageDialog(this, "Apuestas Cerradas");
             }
-
-            out.writeUTF(bandera);
-            //Recibo el mensaje del servidor
-            String mensaje = in.readUTF();
-
-            System.out.println(mensaje);
-
             sc.close();
 
         } catch (IOException ex) {
             Logger.getLogger(Cajero_interface.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

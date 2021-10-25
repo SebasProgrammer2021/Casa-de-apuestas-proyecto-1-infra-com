@@ -403,24 +403,13 @@ public class Servidor {
                 if ("CERRAR".equals(mensaje)) {
                     try {
                         System.out.println("servidor recibe: " + mensaje);
-                        //recibe datos de cliente en cuenta
-
-                        String aux = in.readUTF();
-
-                        boolean bandera = Boolean.parseBoolean(aux);
-
-                        //muestra datos de cliente
+                        
                         System.out.println("entro cerrar apuestas");
-
-                        if (bandera) {
-                            System.out.println("No existen apuestas registradas");
-                            out.writeUTF("APUESTAS CERRADAS");
-
-                        } else {
-                            //cajero.notificacionCerrarAPuesta();
-                            out.writeUTF("APUESTAS ABIERTAS");
+                        if (CuentasApuestas.size() == 0){
+                            out.writeUTF("true");
+                        }else{
+                            out.writeUTF("false");
                         }
-
                     } catch (IOException ex) {
                         out.writeUTF("OPERACION NO VALIDA");
                         System.out.println(ex);

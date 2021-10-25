@@ -216,7 +216,7 @@ public class Abrir_cuenta_datos extends javax.swing.JFrame {
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
-                getImage(ClassLoader.getSystemResource("imagenes/bet365.png"));
+                getImage(ClassLoader.getSystemResource("imagenes/betlogo.jpg"));
 
         return retValue;
     }
