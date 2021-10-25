@@ -210,7 +210,39 @@ public class InterfaceTexto {
     // ---------  FIN  Metodo para CONSULTAR SALDO ---------- 
 
     // -----------   Metodo para HACER APUESTA  ------------
-    public static void hacerApuesta(String numeroCuenta) {
+    public static void hacerApuesta(String numeroCuenta, String tipo, String numeroApuesta) {
+
+        try {
+            //Creo el socket para conectarme con el cliente
+            Socket sc = new Socket(HOST, PUERTO);
+
+            in = new DataInputStream(sc.getInputStream());
+            out = new DataOutputStream(sc.getOutputStream());
+            switch (tipo) {
+                case "A":
+                    out.writeUTF("APOSTAR_TIPO_A");
+                    out.writeUTF(numeroCuenta);
+                    out.writeUTF(numeroApuesta);
+                    break;
+                case "B":
+                    out.writeUTF("APOSTAR_TIPO_B");
+                    out.writeUTF(numeroCuenta);
+                    out.writeUTF(numeroApuesta);
+                    break;
+                case "C":
+                    out.writeUTF("APOSTAR_TIPO_C");
+                    out.writeUTF(numeroCuenta);
+                    out.writeUTF(numeroApuesta);
+                    break;
+            }
+
+            //Recibo el mensaje del servidor
+            String mensaje = in.readUTF();
+            System.out.println(mensaje);
+            sc.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Cajero_interface.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
     // ---------  FIN  Metodo para HACER APUESTA ---------- 
@@ -282,6 +314,13 @@ public class InterfaceTexto {
     // ---------  FIN  Metodo para CARGA AUTOMATICA---------- 
     
   
+    public static boolean validarLetraTipoApuesta(String tipoApuesta){
+	String tipo = tipoApuesta.toUpperCase();
+	if(tipo.equalsIgnoreCase("a") || tipo.equalsIgnoreCase("b") ||tipo.equalsIgnoreCase("c")){
+		return true;
+	}
+	return false;
+}
     
     
     
@@ -302,7 +341,6 @@ public class InterfaceTexto {
                     + "4 -- RETIRAR DINERO \n"
                     + "5 -- CONSULTAR SALDO \t \t"
                     + "6 -- HACER APUESTA \n"
-                    + "7 -- CANCELAR APUESTA \t \t"
                     + "8 -- CARGA AUTOMATICA \n"
                     + "\t 9 -- **** CERRAR ****"
             );
@@ -346,6 +384,7 @@ public class InterfaceTexto {
                     System.out.println("Ingrese valor a retirar: ");
                     String valorRetiro = entradaScaner.nextLine();
                     retirarDinero(numeroCuentaC, valorRetiro);
+                            
                     break;
                 case 5: // 5 -- CONSULTAR SALDO
                     System.out.println("\t CONSULTAR SALDO");
@@ -353,7 +392,25 @@ public class InterfaceTexto {
                     String numeroCuentaConsultar = entradaScaner.nextLine();
                     consultarSaldo(numeroCuentaConsultar);
                     break;
-                case 6:
+                case 6: // 6 -- HACER APUESTA
+                     System.out.println("\t HACER APUESTA");
+                    System.out.println("Ingrese numero de cuenta: ");
+                    String numeroCuentaH = entradaScaner.nextLine();
+                    System.out.println("Ingrese tipo de apuesta: \n A (4 cifras) \t B (3 cifras) \t C (2 cifras)");
+                    String tipoApuesta = entradaScaner.nextLine();
+                    int count = 0;
+                    while (!validarLetraTipoApuesta(tipoApuesta)){
+                        System.out.println("Tipo no valido, Ingrese tipo de apuesta: \n A (4 cifras) \t B (3 cifras) \t C (2 cifras)");
+                        String tipoApuestaIf = entradaScaner.nextLine();
+                        if(validarLetraTipoApuesta(tipoApuestaIf)){
+                            tipoApuesta = tipoApuestaIf;
+                              break;
+                        }
+                    }
+                    
+                    System.out.println("Ingrese numero de apuesta: ");
+                    String numeroApuesta = entradaScaner.nextLine();
+                    hacerApuesta(numeroCuentaH, tipoApuesta.toUpperCase(), numeroApuesta);
                     break;
                 case 7:
                     break;
