@@ -246,9 +246,20 @@ public class InterfaceTexto {
 
     }
     // ---------  FIN  Metodo para HACER APUESTA ---------- 
+    
+      // ---------  INICIO  Metodo para validar letra en tipo de apuesta ---------- 
+     public static boolean validarLetraTipoApuesta(String tipoApuesta){
+	String tipo = tipoApuesta.toUpperCase();
+	if(tipo.equalsIgnoreCase("a") || tipo.equalsIgnoreCase("b") ||tipo.equalsIgnoreCase("c")){
+		return true;
+	}
+	return false;
+}
+       // ---------  FIN  Metodo para validar letra en tipo de apuesta  ---------- 
+    
 
     // -----------   Metodo para CANCELAR APUESTA  ------------
-    public static void cancelarApuesta(String numeroCuenta) {
+    public static void cerrarApuestas(String numeroCuenta) {
 
     }
     // ---------  FIN  Metodo para CANCELAR APUESTA---------- 
@@ -314,13 +325,7 @@ public class InterfaceTexto {
     // ---------  FIN  Metodo para CARGA AUTOMATICA---------- 
     
   
-    public static boolean validarLetraTipoApuesta(String tipoApuesta){
-	String tipo = tipoApuesta.toUpperCase();
-	if(tipo.equalsIgnoreCase("a") || tipo.equalsIgnoreCase("b") ||tipo.equalsIgnoreCase("c")){
-		return true;
-	}
-	return false;
-}
+   
     
     
     
@@ -341,6 +346,7 @@ public class InterfaceTexto {
                     + "4 -- RETIRAR DINERO \n"
                     + "5 -- CONSULTAR SALDO \t \t"
                     + "6 -- HACER APUESTA \n"
+                    + "7 -- CERRAR APUESTAS"
                     + "8 -- CARGA AUTOMATICA \n"
                     + "\t 9 -- **** CERRAR ****"
             );
