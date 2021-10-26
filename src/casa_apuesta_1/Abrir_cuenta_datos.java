@@ -63,22 +63,22 @@ public class Abrir_cuenta_datos extends javax.swing.JFrame {
         setResizable(false);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 204, 51));
-        jLabel3.setText("Ingrese sus datos personales.");
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setText("Ingrese datos Solicitados.");
 
-        jLabel4.setBackground(new java.awt.Color(102, 255, 102));
-        jLabel4.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 204, 51));
-        jLabel4.setText("BET365 S.A");
+        jLabel4.setFont(new java.awt.Font("Britannic Bold", 3, 24)); // NOI18N
+        jLabel4.setText("APUESTAS MINICOMBO");
 
         jLabel6.setText("Nombre:");
 
         jLabel7.setText("                           Saldo de $0 pesos");
 
-        nombreUsuario.setBackground(new java.awt.Color(153, 255, 153));
-        nombreUsuario.setForeground(new java.awt.Color(0, 153, 0));
+        nombreUsuario.setBackground(new java.awt.Color(153, 153, 153));
+        nombreUsuario.setForeground(new java.awt.Color(255, 255, 255));
 
-        btn_crear_cuenta.setBackground(new java.awt.Color(153, 255, 51));
+        btn_crear_cuenta.setBackground(new java.awt.Color(0, 0, 0));
+        btn_crear_cuenta.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        btn_crear_cuenta.setForeground(new java.awt.Color(255, 255, 255));
         btn_crear_cuenta.setText("Enviar");
         btn_crear_cuenta.setToolTipText("");
         btn_crear_cuenta.addActionListener(new java.awt.event.ActionListener() {
@@ -89,20 +89,24 @@ public class Abrir_cuenta_datos extends javax.swing.JFrame {
 
         jLabel9.setText("Apellido:");
 
-        apellidoUsuario.setBackground(new java.awt.Color(153, 255, 153));
-        apellidoUsuario.setForeground(new java.awt.Color(0, 153, 51));
+        apellidoUsuario.setBackground(new java.awt.Color(153, 153, 153));
+        apellidoUsuario.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(143, 143, 143))
             .addGroup(layout.createSequentialGroup()
+                .addGap(103, 103, 103)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel4)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,12 +122,8 @@ public class Abrir_cuenta_datos extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 45, Short.MAX_VALUE)))))
-                .addGap(57, 57, 57))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(151, 151, 151))
+                                .addGap(0, 45, Short.MAX_VALUE)))
+                        .addGap(57, 57, 57))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,7 +140,7 @@ public class Abrir_cuenta_datos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(apellidoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addGap(37, 37, 37)
                 .addComponent(btn_crear_cuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -216,7 +216,7 @@ public class Abrir_cuenta_datos extends javax.swing.JFrame {
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
-                getImage(ClassLoader.getSystemResource("imagenes/bet365.png"));
+                getImage(ClassLoader.getSystemResource("imagenes/betlogo.jpg"));
 
         return retValue;
     }

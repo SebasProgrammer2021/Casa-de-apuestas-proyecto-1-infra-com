@@ -364,27 +364,16 @@ public class Servidor {
                 }
 //-------------------------------------------FINALIZACION DEL PROCESO DE CONSULTA------------------------------------------
 //------------------------------------------- CONSULTA CERRAR APUESTAS ------------------------------------------
-                if ("CERRAR".equals(mensaje)) {
+                if ("CERRAR_APUESTAS".equals(mensaje)) {
                     try {
                         System.out.println("servidor recibe: " + mensaje);
-                        //recibe datos de cliente en cuenta
-
-                        String aux = in.readUTF();
-
-                        boolean bandera = Boolean.parseBoolean(aux);
-
-                        //muestra datos de cliente
+                        
                         System.out.println("entro cerrar apuestas");
-
-                        if (bandera) {
-                            System.out.println("No existen apuestas registradas");
-                            out.writeUTF("APUESTAS CERRADAS");
-
-                        } else {
-                            //cajero.notificacionCerrarAPuesta();
-                            out.writeUTF("APUESTAS ABIERTAS");
+                        if (CuentasApuestas.size() == 0){
+                            out.writeUTF("true");
+                        }else{
+                            out.writeUTF("false");
                         }
-
                     } catch (IOException ex) {
                         out.writeUTF("OPERACION NO VALIDA");
                         System.out.println(ex);
@@ -396,42 +385,42 @@ public class Servidor {
 //-------------------------------------------FINALIZACION DEL PROCESO DE CONSULTA------------------------------------------
 //----------------------------------------------------ABRIR SORTEO-------------------------------------------------------------
 //!!!!!!!!!!!NOTA: ORGANIZAR Y TRABAJAR ESTE PROCESO          
-//                if ("ABRIR_SORTEO".equals(mensaje)) {
-//
-//                    try {
-//                        System.out.println("servidor recibe: " + mensaje);
-//                        //recibe datos de cliente en cuenta
-//                        String datoSortep = in.readUTF();
-//
-//                        //muestra datos de cliente
-//                        System.out.println(datoSortep);
-//
-//                        if (CuentasApuestas.containsValue(datoSortep)) {
-//
-//                            if (!apuesta.containsKey(datoSortep)) {
-//                                System.out.println("si existe");
-//
-//                                apuesta.put(datoSortep, 0);
-//
-//                                out.writeUTF("SORTEO CREADO CON EXITO, NUMERO : " + datoSortep + " SALDO: " + "0");
-//
-//                            } else {
-//                                System.out.println("sorteo realizado*********");
-//                                out.writeUTF(datoSortep + " Esta cuenta ya cuenta con un sorteo");
-//
-//                            }
-//
-//                        } else {
-//                            out.writeUTF("Cuenta: " + datoSortep + " no existente");
-//                        }
-//
-//                    } catch (IOException ex) {
-//                        out.writeUTF("¡transacción erronea");
-//                        System.out.println(ex);
-//
-//                    }
-//
-//                }
+                if ("REALIZAR_SORTEO".equals(mensaje)) {
+
+                    try {
+                        System.out.println("servidor recibe: " + mensaje);
+                        //recibe datos de cliente en cuenta
+                        String datoSorteo = in.readUTF();
+
+                        //muestra datos de cliente
+                        System.out.println(datoSorteo);
+
+                        //if (CuentasApuestas.containsValue(datoSortep)) {
+
+                            if (apuesta.containsKey(datoSorteo)) {
+                                System.out.println("si existe");
+
+                               // apuesta.put(datoSortep, 0);
+
+                                out.writeUTF("SORTEO CREADO CON EXITO, NUMERO : " + datoSorteo + " SALDO: " + "0");
+
+                            } else {
+                                System.out.println("sorteo realizado*********");
+                                out.writeUTF("El número de apuesta no existe: "+datoSorteo);
+
+                            }
+
+                        //} else {
+                        //    out.writeUTF("Cuenta: " + datoSortep + " no existente");
+                       // }
+
+                    } catch (IOException ex) {
+                        out.writeUTF("¡transacción erronea");
+                        System.out.println(ex);
+
+                    }
+
+                }
 //------------------------------------FINALIZACION PROCESO DE SORTEO------------------------------------------------- 
 //-----------------------------------------------CANCELAR APUESTA------------------------------------------------------------
                 if ("CANCELAR_APUESTA".equals(mensaje)) {

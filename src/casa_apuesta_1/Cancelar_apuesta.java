@@ -15,16 +15,16 @@ import javax.swing.JOptionPane;
  * @author Juan Sebastián Tobón.
  * @author Sebastián Londoño Valencia.
  */
-public class Cancelar_null extends javax.swing.JFrame {
+public class Cancelar_apuesta extends javax.swing.JFrame {
 
     /**
      * Creates new form Cancelar_bolsillo
      */
-    public Cancelar_null() {
+    public Cancelar_apuesta() {
         initComponents();
         
         this.setLocationRelativeTo(null);
-        this.setTitle("CANCELAR null");
+        this.setTitle("CANCELAR APUESTA");
         
         JTF_CUENTA_Evento_null.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
@@ -55,7 +55,6 @@ public class Cancelar_null extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
         jLabel2.setText("ingrese una cuenta existente");
@@ -65,16 +64,17 @@ public class Cancelar_null extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        JBT_CANCELAR_Evento_null.setBackground(new java.awt.Color(153, 255, 51));
-        JBT_CANCELAR_Evento_null.setText("evento null");
+        JBT_CANCELAR_Evento_null.setBackground(new java.awt.Color(0, 0, 0));
+        JBT_CANCELAR_Evento_null.setForeground(new java.awt.Color(255, 255, 255));
+        JBT_CANCELAR_Evento_null.setText("Cancelar Apuestas");
         JBT_CANCELAR_Evento_null.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBT_CANCELAR_Evento_nullActionPerformed(evt);
             }
         });
 
-        JTF_CUENTA_Evento_null.setBackground(new java.awt.Color(153, 255, 153));
-        JTF_CUENTA_Evento_null.setForeground(new java.awt.Color(0, 153, 0));
+        JTF_CUENTA_Evento_null.setBackground(new java.awt.Color(153, 153, 153));
+        JTF_CUENTA_Evento_null.setForeground(new java.awt.Color(255, 255, 255));
         JTF_CUENTA_Evento_null.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JTF_CUENTA_Evento_nullActionPerformed(evt);
@@ -86,17 +86,13 @@ public class Cancelar_null extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 204, 51));
-        jLabel3.setText("EventoNull(cancelarapuestas)");
+        jLabel3.setFont(new java.awt.Font("Britannic Bold", 3, 18)); // NOI18N
+        jLabel3.setText("Cancelar Apuesta");
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Cuenta:");
 
-        jLabel5.setForeground(new java.awt.Color(0, 204, 51));
-        jLabel5.setText("ingrese una cuenta existente.");
-
-        jLabel7.setForeground(new java.awt.Color(0, 204, 51));
-        jLabel7.setText("null cancelar algo");
+        jLabel5.setText("ingrese una apuesta existente.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,19 +106,18 @@ public class Cancelar_null extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(jLabel3))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(98, 98, 98)
+                                .addGap(92, 92, 92)
                                 .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(JBT_CANCELAR_Evento_null)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(JTF_CUENTA_Evento_null, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel8))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel7)))
-                        .addGap(0, 37, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(JBT_CANCELAR_Evento_null)
+                                        .addGap(100, 100, 100)))
+                                .addComponent(jLabel8)))
+                        .addGap(0, 27, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -133,18 +128,16 @@ public class Cancelar_null extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JTF_CUENTA_Evento_null, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel8))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel6))
+                .addGap(27, 27, 27)
                 .addComponent(JBT_CANCELAR_Evento_null, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addGap(21, 21, 21))
         );
 
         pack();
@@ -152,9 +145,9 @@ public class Cancelar_null extends javax.swing.JFrame {
 
     private void JBT_CANCELAR_Evento_nullActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBT_CANCELAR_Evento_nullActionPerformed
         // TODO add your handling code here:
-        Cajero_interface cjj = new Cajero_interface();
+        Cajero_interface cajero = new Cajero_interface();
         if(JTF_CUENTA_Evento_null.getText().length()>=6){
-            cjj.cancelarapuesta(JTF_CUENTA_Evento_null.getText());
+            cajero.cancelarapuesta(JTF_CUENTA_Evento_null.getText());
             this.dispose();
            
         }else{
@@ -189,21 +182,23 @@ public class Cancelar_null extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cancelar_null.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cancelar_apuesta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cancelar_null.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cancelar_apuesta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cancelar_null.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cancelar_apuesta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cancelar_null.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cancelar_apuesta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Cancelar_null().setVisible(true);
+                new Cancelar_apuesta().setVisible(true);
             }
         });
     }
@@ -216,7 +211,6 @@ public class Cancelar_null extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables
 }

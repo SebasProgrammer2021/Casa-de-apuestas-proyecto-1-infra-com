@@ -45,32 +45,29 @@ public class Consultar_saldo extends javax.swing.JFrame {
 
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        bntConsultar = new javax.swing.JButton();
+        JBT_Consultar = new javax.swing.JButton();
         numeroCuenta = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
-        jLabel6.setText("Numero cuenta:");
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setText("Cuenta:");
 
-        jLabel5.setForeground(new java.awt.Color(0, 204, 51));
-        jLabel5.setText("ingrese una cuenta existente");
+        jLabel5.setText("Ingrese una cuenta existente");
 
-        jLabel7.setForeground(new java.awt.Color(0, 204, 51));
-        jLabel7.setText("Recuerde que las cuentas de son de 7 digitos ");
-
-        bntConsultar.setBackground(new java.awt.Color(153, 255, 51));
-        bntConsultar.setText("CONSULTAR SALDO");
-        bntConsultar.addActionListener(new java.awt.event.ActionListener() {
+        JBT_Consultar.setBackground(new java.awt.Color(0, 0, 0));
+        JBT_Consultar.setForeground(new java.awt.Color(255, 255, 255));
+        JBT_Consultar.setText("CONSULTAR SALDO");
+        JBT_Consultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntConsultarActionPerformed(evt);
+                JBT_ConsultarActionPerformed(evt);
             }
         });
 
-        numeroCuenta.setBackground(new java.awt.Color(153, 255, 153));
-        numeroCuenta.setForeground(new java.awt.Color(0, 153, 0));
+        numeroCuenta.setBackground(new java.awt.Color(153, 153, 153));
+        numeroCuenta.setForeground(new java.awt.Color(255, 255, 255));
         numeroCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 numeroCuentaActionPerformed(evt);
@@ -82,8 +79,7 @@ public class Consultar_saldo extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 204, 51));
+        jLabel3.setFont(new java.awt.Font("Britannic Bold", 3, 18)); // NOI18N
         jLabel3.setText("Consultar saldo cuenta");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -91,46 +87,43 @@ public class Consultar_saldo extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel7))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 10, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bntConsultar)
-                    .addComponent(numeroCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40))
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(numeroCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(JBT_Consultar)))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel3)
+                .addGap(12, 12, 12)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(numeroCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(18, 18, 18)
-                .addComponent(bntConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
+                .addGap(53, 53, 53)
+                .addComponent(JBT_Consultar)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bntConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntConsultarActionPerformed
+    private void JBT_ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBT_ConsultarActionPerformed
         // TODO add your handling code here:
         Cajero_interface cajero = new Cajero_interface();
         if (numeroCuenta.getText().length() > 0) {
@@ -139,7 +132,7 @@ public class Consultar_saldo extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Ingrese una cuenta");
         }
-    }//GEN-LAST:event_bntConsultarActionPerformed
+    }//GEN-LAST:event_JBT_ConsultarActionPerformed
 
     private void numeroCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroCuentaActionPerformed
         // TODO add your handling code here:
@@ -182,11 +175,10 @@ public class Consultar_saldo extends javax.swing.JFrame {
     }
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bntConsultar;
+    private javax.swing.JButton JBT_Consultar;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField numeroCuenta;
     // End of variables declaration//GEN-END:variables
 }
