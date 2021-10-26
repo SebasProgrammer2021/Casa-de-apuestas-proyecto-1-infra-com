@@ -426,23 +426,23 @@ public class Servidor {
                     try {
                         System.out.println("servidor recibe: " + mensaje);
                         //recibe datos de cliente en cuenta
-                        String datoSortep = in.readUTF();
+                        String datoSorteo = in.readUTF();
 
                         //muestra datos de cliente
-                        System.out.println(datoSortep);
+                        System.out.println(datoSorteo);
 
                         //if (CuentasApuestas.containsValue(datoSortep)) {
 
-                            if (!apuesta.containsKey(datoSortep)) {
+                            if (apuesta.containsKey(datoSorteo)) {
                                 System.out.println("si existe");
 
-                                //apuesta.put(datoSortep, 0);
+                               // apuesta.put(datoSortep, 0);
 
-                                out.writeUTF("SORTEO CREADO CON EXITO, NUMERO : " + datoSortep + " SALDO: " + "0");
+                                out.writeUTF("SORTEO CREADO CON EXITO, NUMERO : " + datoSorteo + " SALDO: " + "0");
 
                             } else {
                                 System.out.println("sorteo realizado*********");
-                                out.writeUTF(datoSortep + " Esta cuenta ya cuenta con un sorteo");
+                                out.writeUTF("El número de apuesta no existe: "+datoSorteo);
 
                             }
 
