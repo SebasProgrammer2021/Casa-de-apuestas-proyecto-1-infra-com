@@ -6,8 +6,10 @@ import javax.swing.JOptionPane;
 
 
 /**
- * 
- * @author Santiago Martinez Ayala 
+ *
+ * @author Rodrigo Acosta Restrepo.
+ * @author Juan Sebastián Tobón.
+ * @author Sebastián Londoño Valencia.
  */
 public class Consultar_saldo extends javax.swing.JFrame {
 
@@ -19,7 +21,7 @@ public class Consultar_saldo extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("CONSULTAR SALDO");
         
-        JTF_CUENTA_Bconsultar.addKeyListener(new KeyAdapter() {
+        numeroCuenta.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
                 char caracter = e.getKeyChar();
 
@@ -43,23 +45,20 @@ public class Consultar_saldo extends javax.swing.JFrame {
 
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         JBT_Consultar = new javax.swing.JButton();
-        JTF_CUENTA_Bconsultar = new javax.swing.JTextField();
+        numeroCuenta = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Cuenta:");
 
-        jLabel5.setForeground(new java.awt.Color(0, 204, 51));
-        jLabel5.setText("ingrese una cuenta existente");
+        jLabel5.setText("Ingrese una cuenta existente");
 
-        jLabel7.setForeground(new java.awt.Color(0, 204, 51));
-        jLabel7.setText("Recuerde que las cuentas de son de 7 digitos ");
-
-        JBT_Consultar.setBackground(new java.awt.Color(153, 255, 51));
+        JBT_Consultar.setBackground(new java.awt.Color(0, 0, 0));
+        JBT_Consultar.setForeground(new java.awt.Color(255, 255, 255));
         JBT_Consultar.setText("CONSULTAR SALDO");
         JBT_Consultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,21 +66,20 @@ public class Consultar_saldo extends javax.swing.JFrame {
             }
         });
 
-        JTF_CUENTA_Bconsultar.setBackground(new java.awt.Color(153, 255, 153));
-        JTF_CUENTA_Bconsultar.setForeground(new java.awt.Color(0, 153, 0));
-        JTF_CUENTA_Bconsultar.addActionListener(new java.awt.event.ActionListener() {
+        numeroCuenta.setBackground(new java.awt.Color(153, 153, 153));
+        numeroCuenta.setForeground(new java.awt.Color(255, 255, 255));
+        numeroCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTF_CUENTA_BconsultarActionPerformed(evt);
+                numeroCuentaActionPerformed(evt);
             }
         });
-        JTF_CUENTA_Bconsultar.addKeyListener(new java.awt.event.KeyAdapter() {
+        numeroCuenta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                JTF_CUENTA_BconsultarKeyTyped(evt);
+                numeroCuentaKeyTyped(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 204, 51));
+        jLabel3.setFont(new java.awt.Font("Britannic Bold", 3, 18)); // NOI18N
         jLabel3.setText("Consultar saldo cuenta");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -89,40 +87,37 @@ public class Consultar_saldo extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel7))
-                        .addGap(0, 93, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel6)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JBT_Consultar)
-                    .addComponent(JTF_CUENTA_Bconsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40))
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(numeroCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(JBT_Consultar)))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel3)
+                .addGap(12, 12, 12)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JTF_CUENTA_Bconsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numeroCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(18, 18, 18)
-                .addComponent(JBT_Consultar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
+                .addGap(53, 53, 53)
+                .addComponent(JBT_Consultar)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
@@ -130,23 +125,22 @@ public class Consultar_saldo extends javax.swing.JFrame {
 
     private void JBT_ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBT_ConsultarActionPerformed
         // TODO add your handling code here:
-        Cajero_interface cjjc = new Cajero_interface();
-        if(JTF_CUENTA_Bconsultar.getText().length()>=6){
-            cjjc.ConsultarS(JTF_CUENTA_Bconsultar.getText());
+        Cajero_interface cajero = new Cajero_interface();
+        if (numeroCuenta.getText().length() > 0) {
+            cajero.ConsultarS(numeroCuenta.getText());
             this.dispose();
-
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Ingrese una cuenta");
         }
     }//GEN-LAST:event_JBT_ConsultarActionPerformed
 
-    private void JTF_CUENTA_BconsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_CUENTA_BconsultarActionPerformed
+    private void numeroCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroCuentaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JTF_CUENTA_BconsultarActionPerformed
+    }//GEN-LAST:event_numeroCuentaActionPerformed
 
-    private void JTF_CUENTA_BconsultarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTF_CUENTA_BconsultarKeyTyped
+    private void numeroCuentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroCuentaKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_JTF_CUENTA_BconsultarKeyTyped
+    }//GEN-LAST:event_numeroCuentaKeyTyped
 
     /**
      * @param args the command line arguments
@@ -182,10 +176,9 @@ public class Consultar_saldo extends javax.swing.JFrame {
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBT_Consultar;
-    private javax.swing.JTextField JTF_CUENTA_Bconsultar;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField numeroCuenta;
     // End of variables declaration//GEN-END:variables
 }

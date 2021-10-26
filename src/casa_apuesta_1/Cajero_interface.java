@@ -27,7 +27,9 @@ import javax.swing.JCheckBox;
 
 /**
  *
- * @author Santiago Martinez Ayala
+ * @author Rodrigo Acosta Restrepo.
+ * @author Juan Sebastián Tobón.
+ * @author Sebastián Londoño Valencia.
  */
 public class Cajero_interface extends javax.swing.JFrame {
 //este es el cliente quien envia las peticiones al servidor
@@ -50,8 +52,10 @@ public class Cajero_interface extends javax.swing.JFrame {
     public Cajero_interface() {
 
         initComponents();
+        //Color JFrame
+        this.getContentPane().setBackground(Color.black);
         this.setLocationRelativeTo(null);
-        this.setTitle("CASA BET369");
+        this.setTitle("APUESTAS MINICOMBO");
 
         //repintar ondas
         Imagen Imagen = new Imagen();
@@ -78,25 +82,24 @@ public class Cajero_interface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        DEPOSITAR_DINERO = new javax.swing.JButton();
+        CANCELAR_APUESTA = new javax.swing.JButton();
+        REALIZAR_APUESTA = new javax.swing.JButton();
+        CONSULTAR_SALDO = new javax.swing.JButton();
+        CANCELAR_CUENTA_APUESTAS = new javax.swing.JButton();
+        JTF_FECHA = new javax.swing.JLabel();
+        NULL = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Abrir_cuenta = new javax.swing.JButton();
-        CANCELAR_CUENTA_APUESTAS = new javax.swing.JButton();
-        panel = new javax.swing.JPanel();
-        NULL = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        DEPOSITAR_DINERO = new javax.swing.JButton();
         RETIRAR_DINERO = new javax.swing.JButton();
-        CARGA_AUTO = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        JTF_FECHA = new javax.swing.JLabel();
-        REALIZAR_APUESTA = new javax.swing.JButton();
-        CANCELAR_APUESTA = new javax.swing.JButton();
-        CONSULTAR_SALDO = new javax.swing.JButton();
-        EVENTO_NULL = new javax.swing.JButton();
         cerrarApuestas = new javax.swing.JButton();
+        CARGA_AUTO = new javax.swing.JButton();
+        panel = new javax.swing.JPanel();
+        realizarSorteo_Button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(255, 0, 0));
+        setForeground(new java.awt.Color(204, 0, 0));
         setIconImage(getIconImage());
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -105,63 +108,9 @@ public class Cajero_interface extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setBackground(new java.awt.Color(153, 255, 153));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 255, 102));
-        jLabel1.setText("EL MINICOMBO APUESTAS");
-
-        Abrir_cuenta.setBackground(new java.awt.Color(153, 255, 153));
-        Abrir_cuenta.setFont(new java.awt.Font("Tahoma", 3, 13)); // NOI18N
-        Abrir_cuenta.setText("Abrir cuenta");
-        Abrir_cuenta.setToolTipText("");
-        Abrir_cuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Abrir_cuenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Abrir_cuentaActionPerformed(evt);
-            }
-        });
-
-        CANCELAR_CUENTA_APUESTAS.setBackground(new java.awt.Color(153, 255, 153));
-        CANCELAR_CUENTA_APUESTAS.setFont(new java.awt.Font("Tahoma", 3, 13)); // NOI18N
-        CANCELAR_CUENTA_APUESTAS.setText("Cancelar cuenta ");
-        CANCELAR_CUENTA_APUESTAS.setBorder(null);
-        CANCELAR_CUENTA_APUESTAS.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        CANCELAR_CUENTA_APUESTAS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CANCELAR_CUENTA_APUESTASActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
-        panel.setLayout(panelLayout);
-        panelLayout.setHorizontalGroup(
-            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 757, Short.MAX_VALUE)
-        );
-        panelLayout.setVerticalGroup(
-            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 172, Short.MAX_VALUE)
-        );
-
-        NULL.setForeground(new java.awt.Color(204, 255, 204));
-
-        javax.swing.GroupLayout NULLLayout = new javax.swing.GroupLayout(NULL);
-        NULL.setLayout(NULLLayout);
-        NULLLayout.setHorizontalGroup(
-            NULLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
-        );
-        NULLLayout.setVerticalGroup(
-            NULLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 172, Short.MAX_VALUE)
-        );
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 255, 102));
-        jLabel2.setText("POR FAVOR SELECCIONE UNA OPCION.");
-
-        DEPOSITAR_DINERO.setBackground(new java.awt.Color(153, 255, 153));
+        DEPOSITAR_DINERO.setBackground(new java.awt.Color(0, 0, 0));
         DEPOSITAR_DINERO.setFont(new java.awt.Font("Tahoma", 3, 13)); // NOI18N
+        DEPOSITAR_DINERO.setForeground(new java.awt.Color(255, 255, 255));
         DEPOSITAR_DINERO.setText("Depositar dinero");
         DEPOSITAR_DINERO.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         DEPOSITAR_DINERO.addActionListener(new java.awt.event.ActionListener() {
@@ -170,44 +119,9 @@ public class Cajero_interface extends javax.swing.JFrame {
             }
         });
 
-        RETIRAR_DINERO.setBackground(new java.awt.Color(153, 255, 153));
-        RETIRAR_DINERO.setFont(new java.awt.Font("Tahoma", 3, 13)); // NOI18N
-        RETIRAR_DINERO.setText("Retirar dinero ");
-        RETIRAR_DINERO.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        RETIRAR_DINERO.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RETIRAR_DINEROActionPerformed(evt);
-            }
-        });
-
-        CARGA_AUTO.setBackground(new java.awt.Color(153, 255, 153));
-        CARGA_AUTO.setFont(new java.awt.Font("Tahoma", 3, 13)); // NOI18N
-        CARGA_AUTO.setForeground(new java.awt.Color(255, 255, 255));
-        CARGA_AUTO.setText("CARGA AUTOMATICA");
-        CARGA_AUTO.setBorder(null);
-        CARGA_AUTO.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        CARGA_AUTO.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CARGA_AUTOActionPerformed(evt);
-            }
-        });
-
-        JTF_FECHA.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
-        JTF_FECHA.setForeground(new java.awt.Color(102, 255, 102));
-
-        REALIZAR_APUESTA.setBackground(new java.awt.Color(153, 255, 153));
-        REALIZAR_APUESTA.setFont(new java.awt.Font("Tahoma", 3, 13)); // NOI18N
-        REALIZAR_APUESTA.setText("Hacer apuesta ");
-        REALIZAR_APUESTA.setBorder(null);
-        REALIZAR_APUESTA.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        REALIZAR_APUESTA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                REALIZAR_APUESTAActionPerformed(evt);
-            }
-        });
-
-        CANCELAR_APUESTA.setBackground(new java.awt.Color(153, 255, 153));
+        CANCELAR_APUESTA.setBackground(new java.awt.Color(0, 0, 0));
         CANCELAR_APUESTA.setFont(new java.awt.Font("Tahoma", 3, 13)); // NOI18N
+        CANCELAR_APUESTA.setForeground(new java.awt.Color(255, 255, 255));
         CANCELAR_APUESTA.setText("Cancelar apuesta");
         CANCELAR_APUESTA.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         CANCELAR_APUESTA.addActionListener(new java.awt.event.ActionListener() {
@@ -216,8 +130,21 @@ public class Cajero_interface extends javax.swing.JFrame {
             }
         });
 
-        CONSULTAR_SALDO.setBackground(new java.awt.Color(153, 255, 153));
+        REALIZAR_APUESTA.setBackground(new java.awt.Color(0, 0, 0));
+        REALIZAR_APUESTA.setFont(new java.awt.Font("Tahoma", 3, 13)); // NOI18N
+        REALIZAR_APUESTA.setForeground(new java.awt.Color(255, 255, 255));
+        REALIZAR_APUESTA.setText("Hacer apuesta ");
+        REALIZAR_APUESTA.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        REALIZAR_APUESTA.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        REALIZAR_APUESTA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                REALIZAR_APUESTAActionPerformed(evt);
+            }
+        });
+
+        CONSULTAR_SALDO.setBackground(new java.awt.Color(0, 0, 0));
         CONSULTAR_SALDO.setFont(new java.awt.Font("Tahoma", 3, 13)); // NOI18N
+        CONSULTAR_SALDO.setForeground(new java.awt.Color(255, 255, 255));
         CONSULTAR_SALDO.setText("Consultar Saldo");
         CONSULTAR_SALDO.setToolTipText("");
         CONSULTAR_SALDO.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -227,16 +154,67 @@ public class Cajero_interface extends javax.swing.JFrame {
             }
         });
 
-        EVENTO_NULL.setBackground(new java.awt.Color(153, 255, 153));
-        EVENTO_NULL.setFont(new java.awt.Font("Tahoma", 3, 13)); // NOI18N
-        EVENTO_NULL.setText("null");
-        EVENTO_NULL.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        EVENTO_NULL.addActionListener(new java.awt.event.ActionListener() {
+        CANCELAR_CUENTA_APUESTAS.setBackground(new java.awt.Color(0, 0, 0));
+        CANCELAR_CUENTA_APUESTAS.setFont(new java.awt.Font("Tahoma", 3, 13)); // NOI18N
+        CANCELAR_CUENTA_APUESTAS.setForeground(new java.awt.Color(255, 255, 255));
+        CANCELAR_CUENTA_APUESTAS.setText("Cancelar cuenta ");
+        CANCELAR_CUENTA_APUESTAS.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        CANCELAR_CUENTA_APUESTAS.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        CANCELAR_CUENTA_APUESTAS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EVENTO_NULLActionPerformed(evt);
+                CANCELAR_CUENTA_APUESTASActionPerformed(evt);
             }
         });
 
+        JTF_FECHA.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
+        JTF_FECHA.setForeground(new java.awt.Color(0, 0, 255));
+        JTF_FECHA.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        NULL.setForeground(new java.awt.Color(51, 51, 51));
+
+        javax.swing.GroupLayout NULLLayout = new javax.swing.GroupLayout(NULL);
+        NULL.setLayout(NULLLayout);
+        NULLLayout.setHorizontalGroup(
+            NULLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 363, Short.MAX_VALUE)
+        );
+        NULLLayout.setVerticalGroup(
+            NULLLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 203, Short.MAX_VALUE)
+        );
+
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Lucida Calligraphy", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("APUESTAS EL MINICOMBO");
+        jLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+
+        Abrir_cuenta.setBackground(new java.awt.Color(0, 0, 0));
+        Abrir_cuenta.setFont(new java.awt.Font("Tahoma", 3, 13)); // NOI18N
+        Abrir_cuenta.setForeground(new java.awt.Color(255, 255, 255));
+        Abrir_cuenta.setText("Abrir cuenta");
+        Abrir_cuenta.setToolTipText("");
+        Abrir_cuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Abrir_cuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Abrir_cuentaActionPerformed(evt);
+            }
+        });
+
+        RETIRAR_DINERO.setBackground(new java.awt.Color(0, 0, 0));
+        RETIRAR_DINERO.setFont(new java.awt.Font("Tahoma", 3, 13)); // NOI18N
+        RETIRAR_DINERO.setForeground(new java.awt.Color(255, 255, 255));
+        RETIRAR_DINERO.setText("Retirar dinero ");
+        RETIRAR_DINERO.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        RETIRAR_DINERO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RETIRAR_DINEROActionPerformed(evt);
+            }
+        });
+
+        cerrarApuestas.setBackground(new java.awt.Color(0, 0, 0));
+        cerrarApuestas.setFont(new java.awt.Font("Tahoma", 3, 11)); // NOI18N
+        cerrarApuestas.setForeground(new java.awt.Color(255, 255, 255));
         cerrarApuestas.setText("Cerrar Apuestas");
         cerrarApuestas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -244,102 +222,114 @@ public class Cajero_interface extends javax.swing.JFrame {
             }
         });
 
+        CARGA_AUTO.setBackground(new java.awt.Color(0, 0, 0));
+        CARGA_AUTO.setFont(new java.awt.Font("Tahoma", 3, 13)); // NOI18N
+        CARGA_AUTO.setForeground(new java.awt.Color(255, 255, 255));
+        CARGA_AUTO.setText("CARGA AUTOMATICA");
+        CARGA_AUTO.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        CARGA_AUTO.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        CARGA_AUTO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CARGA_AUTOActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
+        panel.setLayout(panelLayout);
+        panelLayout.setHorizontalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 419, Short.MAX_VALUE)
+        );
+        panelLayout.setVerticalGroup(
+            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 194, Short.MAX_VALUE)
+        );
+
+        realizarSorteo_Button.setText("Realizar Sorteo");
+        realizarSorteo_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                realizarSorteo_ButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(NULL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(RETIRAR_DINERO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Abrir_cuenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DEPOSITAR_DINERO, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                            .addComponent(REALIZAR_APUESTA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(69, 69, 69)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(342, 342, 342))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(302, 302, 302))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(CANCELAR_CUENTA_APUESTAS, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Abrir_cuenta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(CANCELAR_APUESTA, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                            .addComponent(CONSULTAR_SALDO, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(CANCELAR_CUENTA_APUESTAS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(CONSULTAR_SALDO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(CANCELAR_APUESTA, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE))
+                            .addComponent(cerrarApuestas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addComponent(DEPOSITAR_DINERO, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(NULL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 11, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(RETIRAR_DINERO, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(JTF_FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(12, 12, 12)
-                                        .addComponent(jLabel3))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(REALIZAR_APUESTA, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(EVENTO_NULL, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(80, 80, 80)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(CARGA_AUTO, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cerrarApuestas, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(49, 49, 49))))))))
+                                .addGap(170, 170, 170)
+                                .addComponent(CARGA_AUTO, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(68, 68, 68))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(realizarSorteo_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(109, 109, 109)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(JTF_FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2)
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Abrir_cuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(DEPOSITAR_DINERO, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(NULL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(NULL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(33, 33, 33)
+                .addComponent(JTF_FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Abrir_cuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CANCELAR_CUENTA_APUESTAS, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addGap(139, 139, 139))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(JTF_FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(RETIRAR_DINERO, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(CANCELAR_CUENTA_APUESTAS, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(7, 7, 7)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(REALIZAR_APUESTA, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(CONSULTAR_SALDO, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cerrarApuestas, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CARGA_AUTO, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(CANCELAR_APUESTA, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(EVENTO_NULL, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)))
-                .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(DEPOSITAR_DINERO, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CONSULTAR_SALDO, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(realizarSorteo_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(52, 52, 52)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(REALIZAR_APUESTA, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CANCELAR_APUESTA, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RETIRAR_DINERO, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cerrarApuestas, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CARGA_AUTO, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         pack();
@@ -454,14 +444,6 @@ public class Cajero_interface extends javax.swing.JFrame {
         };
 
     }
-    private void Abrir_cuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Abrir_cuentaActionPerformed
-
-        Abrir_cuenta_datos acd = new Abrir_cuenta_datos();
-        acd.setVisible(true);
-
-
-    }//GEN-LAST:event_Abrir_cuentaActionPerformed
-
     public void realizarApuesta(String _numeroCuenta, String tipo, String _numeroApuesta) {
         String numeroCuenta = _numeroCuenta;
         String numeroApuesta = _numeroApuesta;
@@ -498,24 +480,6 @@ public class Cajero_interface extends javax.swing.JFrame {
             Logger.getLogger(Cajero_interface.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    private void CONSULTAR_SALDOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CONSULTAR_SALDOActionPerformed
-        Consultar_saldo tf = new Consultar_saldo();
-        tf.setVisible(true);
-    }//GEN-LAST:event_CONSULTAR_SALDOActionPerformed
-
-
-    private void EVENTO_NULLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EVENTO_NULLActionPerformed
-
-        ApuestaB cre = new ApuestaB();
-        cre.setVisible(true);
-
-    }//GEN-LAST:event_EVENTO_NULLActionPerformed
-
-    private void CANCELAR_APUESTAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCELAR_APUESTAActionPerformed
-        Cancelar_null cacel = new Cancelar_null();
-        cacel.setVisible(true);
-
-    }//GEN-LAST:event_CANCELAR_APUESTAActionPerformed
 
     public void cancelar_cuentas(String _numeroCuenta) {
         // TODO add your handling code here:
@@ -543,11 +507,6 @@ public class Cajero_interface extends javax.swing.JFrame {
             Logger.getLogger(Cajero_interface.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    private void CANCELAR_CUENTA_APUESTASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCELAR_CUENTA_APUESTASActionPerformed
-        Cancelar_cuenta cah = new Cancelar_cuenta();
-        cah.setVisible(true);
-    }//GEN-LAST:event_CANCELAR_CUENTA_APUESTASActionPerformed
-
     public void Depositar(String cu, String va) {
         // TODO add your handling code here:
         String c = cu;
@@ -577,11 +536,6 @@ public class Cajero_interface extends javax.swing.JFrame {
             Logger.getLogger(Cajero_interface.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    private void DEPOSITAR_DINEROActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DEPOSITAR_DINEROActionPerformed
-        Depositar dp = new Depositar();
-        dp.setVisible(true);
-    }//GEN-LAST:event_DEPOSITAR_DINEROActionPerformed
-
     public void Retirar(String cu, String va) {
         // TODO add your handling code here:
 
@@ -612,28 +566,113 @@ public class Cajero_interface extends javax.swing.JFrame {
             Logger.getLogger(Cajero_interface.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    private void RETIRAR_DINEROActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RETIRAR_DINEROActionPerformed
-        Retirar rt = new Retirar();
-        rt.setVisible(true);
-    }//GEN-LAST:event_RETIRAR_DINEROActionPerformed
+    public void realizarSorteo(String _numeroApuesta) {
+        // TODO add your handling code here:
+        String numeroApuesa = _numeroApuesta;
+        try {
+            //Creo el socket para conectarme con el cliente
+            Socket sc = new Socket(HOST, PUERTO);
+
+            in = new DataInputStream(sc.getInputStream());
+            out = new DataOutputStream(sc.getOutputStream());
+
+            //Envio un mensaje al cliente
+            out.writeUTF("REALIZAR_SORTEO");
+            out.writeUTF(numeroApuesa);
+
+            //Recibo el mensaje del servidor
+            String mensaje = in.readUTF();
+
+            System.out.println(mensaje);
+            JOptionPane.showMessageDialog(null, mensaje);
+
+            sc.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(Cajero_interface.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_formWindowClosed
+
+    private void CANCELAR_CUENTA_APUESTASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCELAR_CUENTA_APUESTASActionPerformed
+        Cancelar_cuenta cah = new Cancelar_cuenta();
+        cah.setVisible(true);
+    }//GEN-LAST:event_CANCELAR_CUENTA_APUESTASActionPerformed
+
+    private void cerrarApuestasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarApuestasActionPerformed
+        // TODO add your handling code here:
+        if (cerrarApuestas.isVisible()) {
+            cerrar_Apuestas("CERRAR_APUESTAS");
+        }
+    }//GEN-LAST:event_cerrarApuestasActionPerformed
+
+    private void CONSULTAR_SALDOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CONSULTAR_SALDOActionPerformed
+        Consultar_saldo tf = new Consultar_saldo();
+        tf.setVisible(true);
+    }//GEN-LAST:event_CONSULTAR_SALDOActionPerformed
+
+    private void CANCELAR_APUESTAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CANCELAR_APUESTAActionPerformed
+        Cancelar_apuesta cancel = new Cancelar_apuesta();
+        cancel.setVisible(true);
+    }//GEN-LAST:event_CANCELAR_APUESTAActionPerformed
+
+    private void REALIZAR_APUESTAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_REALIZAR_APUESTAActionPerformed
+        JCheckBox chec = new JCheckBox("Prueba");
+        if (banderaVal) {
+            int seleccion = JOptionPane.showOptionDialog(null, "Seleccione el tipo de apuesta: ",
+                "Selector de opciones", JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE, null,// null para icono por defecto.
+                new Object[]{"Apuesta tipo A (4 cifras).",
+                    "Apuesta tipo B (3 cifras).",
+                    "Apuesta tipo C (2 cifras)."},
+                "SALIR");
+
+            if (seleccion == 2) {
+                System.out.println("seleccionada opcion " + seleccion);
+                ApuestaC csb = new ApuestaC();
+                csb.setVisible(true);
+
+            } else {
+                System.out.println("SELECCIONADO NADA" + seleccion);
+
+            }
+            if (seleccion == 1) {
+                System.out.println("seleccionada opcion " + seleccion);
+                ApuestaB csb = new ApuestaB();
+                csb.setVisible(true);
+
+            }
+            if (seleccion == 0) {
+                System.out.println("seleccionada opcion " + seleccion);
+                ApuestaA csb = new ApuestaA();
+                csb.setVisible(true);
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Las Apuestas estan Cerradas");
+        }
+    }//GEN-LAST:event_REALIZAR_APUESTAActionPerformed
 
     private void CARGA_AUTOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CARGA_AUTOActionPerformed
         // TODO add your handling code here:
 
         JOptionPane.showMessageDialog(null, "*****11 TRANSACCIONES AUTOMATICAS*****\n"
-                + "ABRIR_CUENTA\n"
-                + "ABRIR_CUENTA\n"
-                + "CREAR_APUESTA\n"
-                + "CREAR_APUESTA\n"
-                + "CANCELAR_APUESTA\n"
-                + "CANCELAR_APUESTA\n"
-                + "DEPOSITAR\n"
-                + "RETIRAR\n"
-                + "CONSULTAR\n"
-                + "CANCELAR_CUENTA\n"
-                + "CANCELAR_CUENTA\n"
-                + "CONSULTAR_DATOS_ACTUALES\n"
-                + "\n***ACEPTE LOS MENSAJES DEL SERVIDOR***\n"
+            + "ABRIR_CUENTA\n"
+            + "ABRIR_CUENTA\n"
+            + "CREAR_APUESTA\n"
+            + "CREAR_APUESTA\n"
+            + "CANCELAR_APUESTA\n"
+            + "CANCELAR_APUESTA\n"
+            + "DEPOSITAR\n"
+            + "RETIRAR\n"
+            + "CONSULTAR\n"
+            + "CANCELAR_CUENTA\n"
+            + "CANCELAR_CUENTA\n"
+            + "CONSULTAR_DATOS_ACTUALES\n"
+            + "\n***ACEPTE LOS MENSAJES DEL SERVIDOR***\n"
         );
 
         //MUESTRA POR CONSOLA LAS CUENTAS Y BOLSILLOS
@@ -680,16 +719,32 @@ public class Cajero_interface extends javax.swing.JFrame {
         cancelar_cuentas(ar[0]);
         cancelar_cuentas(ar[1]);
 
-
     }//GEN-LAST:event_CARGA_AUTOActionPerformed
 
-    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        // TODO add your handling code here:
+    private void RETIRAR_DINEROActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RETIRAR_DINEROActionPerformed
+        Retirar rt = new Retirar();
+        rt.setVisible(true);
+    }//GEN-LAST:event_RETIRAR_DINEROActionPerformed
 
-    }//GEN-LAST:event_formWindowClosed
+    private void DEPOSITAR_DINEROActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DEPOSITAR_DINEROActionPerformed
+        Depositar dp = new Depositar();
+        dp.setVisible(true);
+    }//GEN-LAST:event_DEPOSITAR_DINEROActionPerformed
+
+    private void Abrir_cuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Abrir_cuentaActionPerformed
+
+        Abrir_cuenta_datos acd = new Abrir_cuenta_datos();
+        acd.setVisible(true);
+
+    }//GEN-LAST:event_Abrir_cuentaActionPerformed
+
+    private void realizarSorteo_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarSorteo_ButtonActionPerformed
+        Realizar_sorteo realizarSorteo = new Realizar_sorteo();
+        realizarSorteo.setVisible(true);
+    }//GEN-LAST:event_realizarSorteo_ButtonActionPerformed
     public void ConsultarS(String cu) {
-        // TODO add your handling code here:
-        String c = cu;
+        String numeroCuenta = cu;
+        System.out.println("cuenta"+numeroCuenta);
 
         try {
             //Creo el socket para conectarme con el cliente
@@ -699,17 +754,13 @@ public class Cajero_interface extends javax.swing.JFrame {
             out = new DataOutputStream(sc.getOutputStream());
 
             //Envio un mensaje al cliente
-            out.writeUTF("CONSULTAR");
-            out.writeUTF(c);
+            out.writeUTF("CONSULTAR_SALDO");
+            out.writeUTF(numeroCuenta);
 
             //Recibo el mensaje del servidor
             String mensaje = in.readUTF();
-
-            System.out.println(mensaje);
             JOptionPane.showMessageDialog(null, mensaje);
-
             sc.close();
-
         } catch (IOException ex) {
             Logger.getLogger(Cajero_interface.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -784,77 +835,27 @@ public class Cajero_interface extends javax.swing.JFrame {
 
             //Envio un mensaje al cliente
             out.writeUTF(c);
-
-            String bandera = "";
-            int respuesta = JOptionPane.showConfirmDialog(this, "Esta seguro de Cerrar las Apuestas?", "Confirmacion", JOptionPane.YES_NO_OPTION);
-
-            //validacion de cerra las apuestas
-            if (respuesta == JOptionPane.YES_OPTION) {
-                bandera = "true";
-                banderaVal = false;
+            String msg = in.readUTF();
+            System.out.println("msg"+msg);
+            boolean bandera = Boolean.parseBoolean(msg);
+            if (bandera) {
+                int respuestaServidor = JOptionPane.showConfirmDialog(this, "No se han registrado apuestas, Desea cerrar las Apuestas?", "Confirmacion", JOptionPane.YES_NO_OPTION);
+                        if (respuestaServidor == JOptionPane.YES_OPTION) {
+                            banderaVal = false;
+                            System.out.println("Apuestas Cerradas");
+                             JOptionPane.showMessageDialog(this, "Apuestas Cerradas");
+                        }
             } else {
-                bandera = "false";
+                banderaVal = false;
+                System.out.println("Apuestas Cerradas");
+                JOptionPane.showMessageDialog(this, "Apuestas Cerradas");
             }
-
-            out.writeUTF(bandera);
-            //Recibo el mensaje del servidor
-            String mensaje = in.readUTF();
-
-            System.out.println(mensaje);
-
             sc.close();
 
         } catch (IOException ex) {
             Logger.getLogger(Cajero_interface.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    private void REALIZAR_APUESTAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_REALIZAR_APUESTAActionPerformed
-        JCheckBox chec = new JCheckBox("Prueba");
-        if (banderaVal) {
-            int seleccion = JOptionPane.showOptionDialog(null, "Seleccione el tipo de apuesta: ",
-                    "Selector de opciones", JOptionPane.YES_NO_OPTION,
-                    JOptionPane.QUESTION_MESSAGE, null,// null para icono por defecto.
-                    new Object[]{"Apuesta tipo A (4 cifras).",
-                        "Apuesta tipo B (3 cifras).",
-                        "Apuesta tipo C (2 cifras)."},
-                    "SALIR");
-
-            if (seleccion == 2) {
-                System.out.println("seleccionada opcion " + seleccion);
-                ApuestaC csb = new ApuestaC();
-                csb.setVisible(true);
-
-            } else {
-                System.out.println("SELECCIONADO NADA" + seleccion);
-
-            }
-            if (seleccion == 1) {
-                System.out.println("seleccionada opcion " + seleccion);
-                ApuestaB csb = new ApuestaB();
-                csb.setVisible(true);
-
-            }
-            if (seleccion == 0) {
-                System.out.println("seleccionada opcion " + seleccion);
-                ApuestaA csb = new ApuestaA();
-                csb.setVisible(true);
-
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Las Apuestas estan Cerradas");
-        }
-
-    }//GEN-LAST:event_REALIZAR_APUESTAActionPerformed
-
-    private void cerrarApuestasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarApuestasActionPerformed
-        // TODO add your handling code here:
-
-        if (cerrarApuestas.isVisible()) {
-            cerrar_Apuestas("CERRAR");
-        }
-    }//GEN-LAST:event_cerrarApuestasActionPerformed
-
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -897,16 +898,14 @@ public class Cajero_interface extends javax.swing.JFrame {
     private javax.swing.JButton CARGA_AUTO;
     private javax.swing.JButton CONSULTAR_SALDO;
     private javax.swing.JButton DEPOSITAR_DINERO;
-    private javax.swing.JButton EVENTO_NULL;
     private javax.swing.JLabel JTF_FECHA;
     private javax.swing.JPanel NULL;
     private javax.swing.JButton REALIZAR_APUESTA;
     private javax.swing.JButton RETIRAR_DINERO;
     private javax.swing.JButton cerrarApuestas;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel panel;
+    private javax.swing.JButton realizarSorteo_Button;
     // End of variables declaration//GEN-END:variables
 
 //repintar imagenes en los paneles
@@ -922,7 +921,7 @@ public class Cajero_interface extends javax.swing.JFrame {
             Dimension height = getSize();
 
 //Se selecciona la imagen que tenemos en el paquete de la //ruta del programa
-            ImageIcon Img = new ImageIcon(getClass().getResource("/imagenes/bet365.png"));
+            ImageIcon Img = new ImageIcon(getClass().getResource("/imagenes/images.png"));
 
 //se dibuja la imagen que tenemos en el paquete Images //dentro de un panel
             grafico.drawImage(Img.getImage(), 0, 0, height.width, height.height, null);
@@ -945,7 +944,7 @@ public class Cajero_interface extends javax.swing.JFrame {
             Dimension height = getSize();
 
 //Se selecciona la imagen que tenemos en el paquete de la //ruta del programa
-            ImageIcon Img = new ImageIcon(getClass().getResource("/imagenes/bet365.png"));
+            ImageIcon Img = new ImageIcon(getClass().getResource("/imagenes/bet2.jpg"));
 
 //se dibuja la imagen que tenemos en el paquete Images //dentro de un panel
             grafico.drawImage(Img.getImage(), 0, 0, height.width, height.height, null);
@@ -958,7 +957,7 @@ public class Cajero_interface extends javax.swing.JFrame {
     @Override
     public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().
-                getImage(ClassLoader.getSystemResource("imagenes/bet365.png"));
+                getImage(ClassLoader.getSystemResource("imagenes/bet.jpg"));
 
         return retValue;
     }
