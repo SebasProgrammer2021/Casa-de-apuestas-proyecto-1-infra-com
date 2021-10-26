@@ -444,6 +444,7 @@ public class Cajero_interface extends javax.swing.JFrame {
         };
 
     }
+
     public void realizarApuesta(String _numeroCuenta, String tipo, String _numeroApuesta) {
         String numeroCuenta = _numeroCuenta;
         String numeroApuesta = _numeroApuesta;
@@ -507,6 +508,7 @@ public class Cajero_interface extends javax.swing.JFrame {
             Logger.getLogger(Cajero_interface.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     public void Depositar(String cu, String va) {
         // TODO add your handling code here:
         String c = cu;
@@ -536,6 +538,7 @@ public class Cajero_interface extends javax.swing.JFrame {
             Logger.getLogger(Cajero_interface.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     public void Retirar(String cu, String va) {
         // TODO add your handling code here:
 
@@ -566,6 +569,7 @@ public class Cajero_interface extends javax.swing.JFrame {
             Logger.getLogger(Cajero_interface.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     public void realizarSorteo(String _numeroApuesta) {
         // TODO add your handling code here:
         String numeroApuesa = _numeroApuesta;
@@ -623,33 +627,28 @@ public class Cajero_interface extends javax.swing.JFrame {
         JCheckBox chec = new JCheckBox("Prueba");
         if (banderaVal) {
             int seleccion = JOptionPane.showOptionDialog(null, "Seleccione el tipo de apuesta: ",
-                "Selector de opciones", JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE, null,// null para icono por defecto.
-                new Object[]{"Apuesta tipo A (4 cifras).",
-                    "Apuesta tipo B (3 cifras).",
-                    "Apuesta tipo C (2 cifras)."},
-                "SALIR");
-
-            if (seleccion == 2) {
-                System.out.println("seleccionada opcion " + seleccion);
-                ApuestaC csb = new ApuestaC();
-                csb.setVisible(true);
-
-            } else {
-                System.out.println("SELECCIONADO NADA" + seleccion);
-
-            }
-            if (seleccion == 1) {
-                System.out.println("seleccionada opcion " + seleccion);
-                ApuestaB csb = new ApuestaB();
-                csb.setVisible(true);
-
-            }
-            if (seleccion == 0) {
-                System.out.println("seleccionada opcion " + seleccion);
-                ApuestaA csb = new ApuestaA();
-                csb.setVisible(true);
-
+                    "Selector de opciones", JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE, null,// null para icono por defecto.
+                    new Object[]{"Apuesta tipo A (4 cifras).",
+                        "Apuesta tipo B (3 cifras).",
+                        "Apuesta tipo C (2 cifras)."},
+                    "SALIR");
+            switch (seleccion) {
+                case 0:
+                    System.out.println("Apuesta tipo A");
+                    ApuestaA ventanaApuestaA = new ApuestaA();
+                    ventanaApuestaA.setVisible(true);
+                    break;
+                case 1:
+                    System.out.println("Apuesta tipo B ");
+                    ApuestaB ventanaApuestaB = new ApuestaB();
+                    ventanaApuestaB.setVisible(true);
+                    break;
+                case 2:
+                    System.out.println("Apuesta tipo C ");
+                    ApuestaC ventanaApuestaC = new ApuestaC();
+                    ventanaApuestaC.setVisible(true);
+                    break;
             }
         } else {
             JOptionPane.showMessageDialog(null, "Las Apuestas estan Cerradas");
@@ -660,19 +659,19 @@ public class Cajero_interface extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         JOptionPane.showMessageDialog(null, "*****11 TRANSACCIONES AUTOMATICAS*****\n"
-            + "ABRIR_CUENTA\n"
-            + "ABRIR_CUENTA\n"
-            + "CREAR_APUESTA\n"
-            + "CREAR_APUESTA\n"
-            + "CANCELAR_APUESTA\n"
-            + "CANCELAR_APUESTA\n"
-            + "DEPOSITAR\n"
-            + "RETIRAR\n"
-            + "CONSULTAR\n"
-            + "CANCELAR_CUENTA\n"
-            + "CANCELAR_CUENTA\n"
-            + "CONSULTAR_DATOS_ACTUALES\n"
-            + "\n***ACEPTE LOS MENSAJES DEL SERVIDOR***\n"
+                + "ABRIR_CUENTA\n"
+                + "ABRIR_CUENTA\n"
+                + "CREAR_APUESTA\n"
+                + "CREAR_APUESTA\n"
+                + "CANCELAR_APUESTA\n"
+                + "CANCELAR_APUESTA\n"
+                + "DEPOSITAR\n"
+                + "RETIRAR\n"
+                + "CONSULTAR\n"
+                + "CANCELAR_CUENTA\n"
+                + "CANCELAR_CUENTA\n"
+                + "CONSULTAR_DATOS_ACTUALES\n"
+                + "\n***ACEPTE LOS MENSAJES DEL SERVIDOR***\n"
         );
 
         //MUESTRA POR CONSOLA LAS CUENTAS Y BOLSILLOS
@@ -744,7 +743,7 @@ public class Cajero_interface extends javax.swing.JFrame {
     }//GEN-LAST:event_realizarSorteo_ButtonActionPerformed
     public void ConsultarS(String cu) {
         String numeroCuenta = cu;
-        System.out.println("cuenta"+numeroCuenta);
+        System.out.println("cuenta" + numeroCuenta);
 
         try {
             //Creo el socket para conectarme con el cliente
@@ -836,15 +835,15 @@ public class Cajero_interface extends javax.swing.JFrame {
             //Envio un mensaje al cliente
             out.writeUTF(c);
             String msg = in.readUTF();
-            System.out.println("msg"+msg);
+            System.out.println("msg" + msg);
             boolean bandera = Boolean.parseBoolean(msg);
             if (bandera) {
                 int respuestaServidor = JOptionPane.showConfirmDialog(this, "No se han registrado apuestas, Desea cerrar las Apuestas?", "Confirmacion", JOptionPane.YES_NO_OPTION);
-                        if (respuestaServidor == JOptionPane.YES_OPTION) {
-                            banderaVal = false;
-                            System.out.println("Apuestas Cerradas");
-                             JOptionPane.showMessageDialog(this, "Apuestas Cerradas");
-                        }
+                if (respuestaServidor == JOptionPane.YES_OPTION) {
+                    banderaVal = false;
+                    System.out.println("Apuestas Cerradas");
+                    JOptionPane.showMessageDialog(this, "Apuestas Cerradas");
+                }
             } else {
                 banderaVal = false;
                 System.out.println("Apuestas Cerradas");
@@ -856,6 +855,7 @@ public class Cajero_interface extends javax.swing.JFrame {
             Logger.getLogger(Cajero_interface.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

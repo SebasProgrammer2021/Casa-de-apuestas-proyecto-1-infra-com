@@ -151,7 +151,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Depositar dinero"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor Por defecto"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
@@ -171,7 +171,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Cancelar apuesta"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor Por defecto"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
@@ -196,7 +196,7 @@
           </Border>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor Por defecto"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
@@ -217,7 +217,7 @@
         <Property name="text" type="java.lang.String" value="Consultar Saldo"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor Por defecto"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
@@ -242,7 +242,7 @@
           </Border>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor Por defecto"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
@@ -317,7 +317,7 @@
         <Property name="text" type="java.lang.String" value="Abrir cuenta"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor Por defecto"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
@@ -337,7 +337,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Retirar dinero "/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor Por defecto"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
@@ -379,7 +379,7 @@
           </Border>
         </Property>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Cursor Por defecto"/>
+          <Color id="Default Cursor"/>
         </Property>
       </Properties>
       <Events>
