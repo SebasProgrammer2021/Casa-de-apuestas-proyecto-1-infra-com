@@ -6,7 +6,9 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Santiago Martinez Ayala
+ * @author Rodrigo Acosta Restrepo.
+ * @author Juan Sebastián Tobón.
+ * @author Sebastián Londoño Valencia.
  */
 public class ApuestaA extends javax.swing.JFrame {
 
@@ -169,10 +171,9 @@ public class ApuestaA extends javax.swing.JFrame {
     private void btnRealizarApuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRealizarApuestaActionPerformed
         // TODO add your handling code here:
         Cajero_interface cajero = new Cajero_interface();
-        if (numeroCuenta.getText().length() >= 6 && numeroApuesta.getText().length() != 0) {
+        if (numeroCuenta.getText().length() > 0 && numeroApuesta.getText().length() > 0) {
             cajero.realizarApuesta(numeroCuenta.getText(), "A", numeroApuesta.getText());
             this.dispose();
-
         } else {
             JOptionPane.showMessageDialog(null, "llene todos los campos ");
         }

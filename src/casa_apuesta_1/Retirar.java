@@ -5,9 +5,11 @@ import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
- *  
- * @author Santiago Martinez Ayala 
- */ 
+ *
+ * @author Rodrigo Acosta Restrepo.
+ * @author Juan Sebastián Tobón.
+ * @author Sebastián Londoño Valencia.
+ */
 public class Retirar extends javax.swing.JFrame {
 
     /**
@@ -171,11 +173,10 @@ public class Retirar extends javax.swing.JFrame {
     private void JBT_RETIRAR_DINEROActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBT_RETIRAR_DINEROActionPerformed
         // TODO add your handling code here:
         Cajero_interface cajero = new Cajero_interface();
-        if(numeroCuenta.getText().length()>=6 && JTF_VALOR_RETIRAR.getText().length() !=0){
-            cajero.Retirar(numeroCuenta.getText(),JTF_VALOR_RETIRAR.getText());
+        if (numeroCuenta.getText().length() > 0 && JTF_VALOR_RETIRAR.getText().length() > 0) {
+            cajero.Retirar(numeroCuenta.getText(), JTF_VALOR_RETIRAR.getText());
             this.dispose();
-
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Ingrese una cuenta y un valor a RETIRAR");
         }
     }//GEN-LAST:event_JBT_RETIRAR_DINEROActionPerformed

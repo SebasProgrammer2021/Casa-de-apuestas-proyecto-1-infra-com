@@ -10,8 +10,10 @@ import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
- * 
- * @author Santiago Martinez Ayala
+ *
+ * @author Rodrigo Acosta Restrepo.
+ * @author Juan Sebastián Tobón.
+ * @author Sebastián Londoño Valencia.
  */
 public class Cancelar_cuenta extends javax.swing.JFrame {
 
@@ -23,7 +25,7 @@ public class Cancelar_cuenta extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("CANCELAR CUENTA_APUESTAS"); 
         
-        JTF_CUENTAH_CANCELAR.addKeyListener(new KeyAdapter() {
+        numeroCuenta.addKeyListener(new KeyAdapter() {
             public void keyTyped(KeyEvent e) {
                 char caracter = e.getKeyChar();
 
@@ -48,8 +50,8 @@ public class Cancelar_cuenta extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        JBT_CANCELAR_CUENTA = new javax.swing.JButton();
-        JTF_CUENTAH_CANCELAR = new javax.swing.JTextField();
+        btnCancelarCuenta = new javax.swing.JButton();
+        numeroCuenta = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -58,29 +60,29 @@ public class Cancelar_cuenta extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Cuenta:");
 
-        jLabel5.setText("La cuenta a cancelar no podra tener saldo, ni apuestas.");
+        jLabel5.setText("La cuenta a cancelar no podra tener saldo.");
 
         jLabel7.setText("Ingrese el numero de la cuenta que desea cancelar.");
 
-        JBT_CANCELAR_CUENTA.setBackground(new java.awt.Color(0, 0, 0));
-        JBT_CANCELAR_CUENTA.setForeground(new java.awt.Color(255, 255, 255));
-        JBT_CANCELAR_CUENTA.setText("CANCELAR CUENTA");
-        JBT_CANCELAR_CUENTA.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelarCuenta.setBackground(new java.awt.Color(0, 0, 0));
+        btnCancelarCuenta.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelarCuenta.setText("CANCELAR CUENTA");
+        btnCancelarCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBT_CANCELAR_CUENTAActionPerformed(evt);
+                btnCancelarCuentaActionPerformed(evt);
             }
         });
 
-        JTF_CUENTAH_CANCELAR.setBackground(new java.awt.Color(153, 153, 153));
-        JTF_CUENTAH_CANCELAR.setForeground(new java.awt.Color(240, 240, 240));
-        JTF_CUENTAH_CANCELAR.addActionListener(new java.awt.event.ActionListener() {
+        numeroCuenta.setBackground(new java.awt.Color(153, 153, 153));
+        numeroCuenta.setForeground(new java.awt.Color(240, 240, 240));
+        numeroCuenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTF_CUENTAH_CANCELARActionPerformed(evt);
+                numeroCuentaActionPerformed(evt);
             }
         });
-        JTF_CUENTAH_CANCELAR.addKeyListener(new java.awt.event.KeyAdapter() {
+        numeroCuenta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                JTF_CUENTAH_CANCELARKeyTyped(evt);
+                numeroCuentaKeyTyped(evt);
             }
         });
 
@@ -92,73 +94,65 @@ public class Cancelar_cuenta extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(99, 99, 99)
-                                .addComponent(jLabel6)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(JBT_CANCELAR_CUENTA)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(27, 27, 27)
-                                        .addComponent(JTF_CUENTAH_CANCELAR)))))
-                        .addGap(93, 93, 93))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
-                                .addGap(83, 83, 83))
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel7))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(btnCancelarCuenta))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(numeroCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel3)
+                .addGap(12, 12, 12)
                 .addComponent(jLabel5)
-                .addGap(25, 25, 25)
+                .addGap(6, 6, 6)
+                .addComponent(jLabel7)
+                .addGap(66, 66, 66)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JTF_CUENTAH_CANCELAR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addComponent(JBT_CANCELAR_CUENTA, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                    .addComponent(jLabel6)
+                    .addComponent(numeroCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70)
+                .addComponent(btnCancelarCuenta)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JBT_CANCELAR_CUENTAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBT_CANCELAR_CUENTAActionPerformed
+    private void btnCancelarCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarCuentaActionPerformed
         // TODO add your handling code here:
         Cajero_interface cjjj = new Cajero_interface();
-        if(JTF_CUENTAH_CANCELAR.getText().length()>=6){
-            cjjj.cancelar_cuentas(JTF_CUENTAH_CANCELAR.getText());
+        if (numeroCuenta.getText().length() > 0) {
+            cjjj.cancelar_cuentas(numeroCuenta.getText());
             this.dispose();
-
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "Ingrese una cuenta");
         }
-    }//GEN-LAST:event_JBT_CANCELAR_CUENTAActionPerformed
+    }//GEN-LAST:event_btnCancelarCuentaActionPerformed
 
-    private void JTF_CUENTAH_CANCELARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTF_CUENTAH_CANCELARActionPerformed
+    private void numeroCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroCuentaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JTF_CUENTAH_CANCELARActionPerformed
+    }//GEN-LAST:event_numeroCuentaActionPerformed
 
-    private void JTF_CUENTAH_CANCELARKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JTF_CUENTAH_CANCELARKeyTyped
+    private void numeroCuentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroCuentaKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_JTF_CUENTAH_CANCELARKeyTyped
+    }//GEN-LAST:event_numeroCuentaKeyTyped
 
     /**
      * @param args the command line arguments
@@ -197,11 +191,11 @@ public class Cancelar_cuenta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBT_CANCELAR_CUENTA;
-    private javax.swing.JTextField JTF_CUENTAH_CANCELAR;
+    private javax.swing.JButton btnCancelarCuenta;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField numeroCuenta;
     // End of variables declaration//GEN-END:variables
 }

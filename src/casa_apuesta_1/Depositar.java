@@ -141,7 +141,7 @@ public class Depositar extends javax.swing.JFrame {
                             .addComponent(cantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                             .addComponent(numeroCuenta)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(167, 167, 167)
+                        .addGap(166, 166, 166)
                         .addComponent(btnDepositar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -173,7 +173,7 @@ public class Depositar extends javax.swing.JFrame {
     private void btnDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositarActionPerformed
         // TODO add your handling code here:
         Cajero_interface cajero = new Cajero_interface();
-        if (numeroCuenta.getText().length() == 7 && cantidad.getText().length() > 0) {
+        if (numeroCuenta.getText().length() > 0 && cantidad.getText().length() > 0) {
             cajero.Depositar(numeroCuenta.getText(), cantidad.getText());
             this.dispose();
         } else {
@@ -187,7 +187,7 @@ public class Depositar extends javax.swing.JFrame {
     }//GEN-LAST:event_numeroCuentaActionPerformed
 
     private void numeroCuentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroCuentaKeyTyped
- 
+
     }//GEN-LAST:event_numeroCuentaKeyTyped
 
     private void cantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadActionPerformed

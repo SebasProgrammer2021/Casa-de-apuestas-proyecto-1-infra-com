@@ -27,7 +27,9 @@ import javax.swing.JCheckBox;
 
 /**
  *
- * @author Santiago Martinez Ayala
+ * @author Rodrigo Acosta Restrepo.
+ * @author Juan Sebastián Tobón.
+ * @author Sebastián Londoño Valencia.
  */
 public class Cajero_interface extends javax.swing.JFrame {
 //este es el cliente quien envia las peticiones al servidor
@@ -741,8 +743,8 @@ public class Cajero_interface extends javax.swing.JFrame {
         realizarSorteo.setVisible(true);
     }//GEN-LAST:event_realizarSorteo_ButtonActionPerformed
     public void ConsultarS(String cu) {
-        // TODO add your handling code here:
-        String c = cu;
+        String numeroCuenta = cu;
+        System.out.println("cuenta"+numeroCuenta);
 
         try {
             //Creo el socket para conectarme con el cliente
@@ -752,17 +754,13 @@ public class Cajero_interface extends javax.swing.JFrame {
             out = new DataOutputStream(sc.getOutputStream());
 
             //Envio un mensaje al cliente
-            out.writeUTF("CONSULTAR");
-            out.writeUTF(c);
+            out.writeUTF("CONSULTAR_SALDO");
+            out.writeUTF(numeroCuenta);
 
             //Recibo el mensaje del servidor
             String mensaje = in.readUTF();
-
-            System.out.println(mensaje);
             JOptionPane.showMessageDialog(null, mensaje);
-
             sc.close();
-
         } catch (IOException ex) {
             Logger.getLogger(Cajero_interface.class.getName()).log(Level.SEVERE, null, ex);
         }

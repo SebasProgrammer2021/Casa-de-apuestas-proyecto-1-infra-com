@@ -6,7 +6,9 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Santiago Martinez Ayala
+ * @author Rodrigo Acosta Restrepo.
+ * @author Juan Sebastián Tobón.
+ * @author Sebastián Londoño Valencia.
  */
 public class ApuestaB extends javax.swing.JFrame {
 
