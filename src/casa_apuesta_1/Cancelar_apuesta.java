@@ -66,7 +66,7 @@ public class Cancelar_apuesta extends javax.swing.JFrame {
 
         JBT_CANCELAR_Evento_null.setBackground(new java.awt.Color(0, 0, 0));
         JBT_CANCELAR_Evento_null.setForeground(new java.awt.Color(255, 255, 255));
-        JBT_CANCELAR_Evento_null.setText("evento null");
+        JBT_CANCELAR_Evento_null.setText("Cancelar Apuestas");
         JBT_CANCELAR_Evento_null.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JBT_CANCELAR_Evento_nullActionPerformed(evt);
@@ -117,7 +117,7 @@ public class Cancelar_apuesta extends javax.swing.JFrame {
                                         .addComponent(JBT_CANCELAR_Evento_null)
                                         .addGap(100, 100, 100)))
                                 .addComponent(jLabel8)))
-                        .addGap(0, 45, Short.MAX_VALUE))
+                        .addGap(0, 27, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
