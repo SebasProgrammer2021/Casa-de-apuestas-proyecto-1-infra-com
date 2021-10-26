@@ -1,1 +1,11 @@
 /dist/
+# Archivos compilados
+*.class
+
+# Archivos de construcción autogenerados
+/build
+
+*.iml
+
+# Archivos del sistema mac
+.DS_store
