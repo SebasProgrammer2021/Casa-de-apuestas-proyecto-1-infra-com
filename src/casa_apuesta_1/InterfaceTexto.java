@@ -4,14 +4,17 @@
  */
 package casa_apuesta_1;
 
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 
 /**
  *
@@ -34,15 +37,14 @@ public class InterfaceTexto {
     String nombre;
     String apellido;
     String saldo;
-   static String ar[] = new String[3];
-    
-   /**
-    * Metodos para autocarga de datos en el programa
-    */
+    static String ar[] = new String[3];
+
+    /**
+     * Metodos para autocarga de datos en el programa
+     */
     //  -------- Metodo Carga para cargar datos eb ek servidor
-       public static void carga(){
-    
-        
+    public static void carga() {
+
         try {
             //Creo el socket para conectarme con el cliente
             Socket socket = new Socket(HOST, PUERTO);
@@ -52,30 +54,26 @@ public class InterfaceTexto {
 
             //Envio un mensaje al cliente
             out.writeUTF("CARGA");
-            
+
             //Recibo el mensaje del servidor
             String mensaje = in.readUTF();
             String mensaje1 = in.readUTF();
-          
-     
-            System.out.println("CUENTAS AUTOCARGA" + mensaje + " "+ mensaje1 );
 
-            
+            System.out.println("CUENTAS AUTOCARGA" + mensaje + " " + mensaje1);
+
             ar[0] = mensaje;
             ar[1] = mensaje1;
-           
+
             socket.close();
 
         } catch (IOException ex) {
             Logger.getLogger(Cajero_interface.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-       
-       // -----------  FIN Metodos de carga automatica
-    
 
+    // -----------  FIN Metodos de carga automatica
     // -----------   Metodo para ABRIR CUENTA  ------------
-    public static void crearCliente(String nombreRecibido, String apellidoRecibido) {
+    public static String crearCliente(String nombreRecibido, String apellidoRecibido) {
         //fucncion en el cliente que realiza peticon al server recibiendo datos de la vista abrir cuenta
 
         try {
@@ -92,20 +90,25 @@ public class InterfaceTexto {
             out.writeUTF("ABRIR_CUENTA"); //mensaje al servidor
             out.writeUTF(nombreRecibido + " " + apellidoRecibido); //elemnetos enviados al servidor
 
+            // creamos variable para el retorno de la informacion
+            String datos = nombreRecibido + " " + apellidoRecibido;
+
             //Recibo el mensaje del servidor
             String mensaje = in.readUTF();
             System.out.println(mensaje);
 
             socket.close();
+            return datos;
 
         } catch (IOException ex) {
             Logger.getLogger(Cajero_interface.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return null;
     }
     // ---------  FIN  Metodo para ABRIR CUENTA ---------- 
 
     // -----------   Metodo para DEPOSITAR DINERO  ------------
-    public static void depositarDinero(String numeroCuenta, String valorDepositado) {
+    public static String depositarDinero(String numeroCuenta, String valorDepositado) {
 
         try {
             //Creo el socket para conectarme con el cliente
@@ -119,16 +122,18 @@ public class InterfaceTexto {
             out.writeUTF(numeroCuenta);
             out.writeUTF(valorDepositado);
 
+            String datos = numeroCuenta + " " + valorDepositado;
+
             //Recibo el mensaje del servidor
             String mensaje = in.readUTF();
             System.out.println(mensaje);
 
             socket.close();
-
+            return datos;
         } catch (IOException ex) {
             Logger.getLogger(Cajero_interface.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        return null;
     }
     // ---------  FIN  Metodo para DEPOSITAR DINERO ---------- 
 
@@ -212,87 +217,111 @@ public class InterfaceTexto {
     // ---------  FIN  Metodo para CONSULTAR SALDO ---------- 
 
     // -----------   Metodo para HACER APUESTA  ------------
-    public static void hacerApuesta(String numeroCuenta) {
+    public static String hacerApuesta(String numeroCuenta, String tipo, String numeroApuesta) {
 
+        try {
+            //Creo el socket para conectarme con el cliente
+            Socket sc = new Socket(HOST, PUERTO);
+
+            in = new DataInputStream(sc.getInputStream());
+            out = new DataOutputStream(sc.getOutputStream());
+            switch (tipo) {
+                case "A":
+                    out.writeUTF("APOSTAR_TIPO_A");
+                    out.writeUTF(numeroCuenta);
+                    out.writeUTF(numeroApuesta);
+                    break;
+                case "B":
+                    out.writeUTF("APOSTAR_TIPO_B");
+                    out.writeUTF(numeroCuenta);
+                    out.writeUTF(numeroApuesta);
+                    break;
+                case "C":
+                    out.writeUTF("APOSTAR_TIPO_C");
+                    out.writeUTF(numeroCuenta);
+                    out.writeUTF(numeroApuesta);
+                    break;
+            }
+
+            //Recibo el mensaje del servidor
+            String mensaje = in.readUTF();
+            System.out.println(mensaje);
+
+            String datos = numeroCuenta + " " + " " + tipo + " " + numeroApuesta;
+            sc.close();
+            return datos;
+        } catch (IOException ex) {
+            Logger.getLogger(Cajero_interface.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     // ---------  FIN  Metodo para HACER APUESTA ---------- 
 
+    // ---------  INICIO  Metodo para validar letra en tipo de apuesta ---------- 
+    public static boolean validarLetraTipoApuesta(String tipoApuesta) {
+        String tipo = tipoApuesta.toUpperCase();
+        if (tipo.equalsIgnoreCase("a") || tipo.equalsIgnoreCase("b") || tipo.equalsIgnoreCase("c")) {
+            return true;
+        }
+        return false;
+    }
+    // ---------  FIN  Metodo para validar letra en tipo de apuesta  ---------- 
+
     // -----------   Metodo para CANCELAR APUESTA  ------------
-    public static void cancelarApuesta(String numeroCuenta) {
+    public static void cerrarApuestas(String numeroCuenta) {
 
     }
     // ---------  FIN  Metodo para CANCELAR APUESTA---------- 
 
-    // -----------   Metodo para CARGA AUTOMATICA  ------------
-    public static void cargaAutomatica() {
+    // -----------   Metodos para CARGA AUTOMATICA  ------------
+    
+    public static void subirArchivo() throws FileNotFoundException, IOException {
+        // TODO Auto-generated method stub
+        File archivo = new File("./src/casa_apuesta_1/recursos/cargueAuto.txt");
 
-        System.out.println("\t \t **** CARGA AUTOMATICA ****"
-                + " \n \n"
-                + " -- ABRIR CUENTA \t \t"
-                + " -- DEPOSITAR DINERO \n"
-                + " -- CANCELAR CUENTA \t \t"
-                + " -- RETIRAR DINERO \n"
-                + " -- CONSULTAR SALDO \t \t"
-                + " -- HACER APUESTA \n"
-                + " -- CANCELAR APUESTA \t \t"
-                + " -- CARGA AUTOMATICA \n"
-        );
+        String cadenaArchivo;
+        String respuesta = "";
+        FileReader fr = new FileReader(archivo);
+        BufferedReader br = new BufferedReader(fr);
 
-        //MUESTRA POR CONSOLA LAS CUENTAS Y BOLSILLOS
-        try {
-            //Creo el socket para conectarme con el cliente
-            Socket socket = new Socket(HOST, PUERTO);
+        while ((cadenaArchivo = br.readLine()) != null) {
 
-            in = new DataInputStream(socket.getInputStream());
-            out = new DataOutputStream(socket.getOutputStream());
+            respuesta += separarArchivo(cadenaArchivo);
+            System.out.println(cadenaArchivo);
+        }
+        br.close();
+    }
 
-            //Envio un mensaje al cliente
-            // out.writeUTF("CANCELAR_CUENTA");
-            out.writeUTF("MOSTRAR_HASH");
+    public static String separarArchivo(String cadenaArchivo) throws FileNotFoundException, IOException {
+        // TODO Auto-generated method stub
+        String respuesta = "";
+        String datos[] = cadenaArchivo.split(",");
+        switch (datos[0]) {
+            case "CREAR_CUENTA":
+                respuesta = crearCliente(datos[1], datos[2]);
+                break;
 
-            //Recibo el mensaje del servidor
-            String mensaje = in.readUTF();
-            System.out.println(mensaje + "n");
+            case "DEPOSITAR":
+                respuesta = depositarDinero(datos[1], datos[2]);
+                break;
 
-            socket.close();
+            case "APOSTAR":
+                respuesta = hacerApuesta(datos[1], datos[2], datos[1]);
+                break;
 
-        } catch (IOException ex) {
-            Logger.getLogger(Cajero_interface.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        crearCliente("Sandra", "Castaño");
-        crearCliente("Pedro", "Garcia"); 
-
-        carga();
-        System.out.println("cuentas carga automatica: " + ar[0] + "\n" + ar[1]);
-
-        //esto se hace por que las cuentas las retorna el servidos sin ningun orden
-        String cu = ar[0];
-        String cu2 = ar[1];
-        
-        /**
-         * Pendiente metodos de crearApuesta y cancelarApuesta
-         */
-
-        depositarDinero(cu, "100");
-        retirarDinero(cu, "100");
-        consultarSaldo(cu);
-        cancelarCuenta(ar[0]);
-        cancelarCuenta(ar[1]);
-
+        return respuesta;
     }
+    
     // ---------  FIN  Metodo para CARGA AUTOMATICA---------- 
-    
-  
-    
-    
-    
-    
+
+
     /**
      * Metodo MAIN
-     * @param args 
+     *
+     * @param args
      */
-
     public static void main(String[] args) {
         int desicion = 0;
         do {
@@ -304,7 +333,7 @@ public class InterfaceTexto {
                     + "4 -- RETIRAR DINERO \n"
                     + "5 -- CONSULTAR SALDO \t \t"
                     + "6 -- HACER APUESTA \n"
-                    + "7 -- CANCELAR APUESTA \t \t"
+                    + "7 -- CERRAR APUESTAS \t \t"
                     + "8 -- CARGA AUTOMATICA \n"
                     + "\t 9 -- **** CERRAR ****"
             );
@@ -348,6 +377,7 @@ public class InterfaceTexto {
                     System.out.println("Ingrese valor a retirar: ");
                     String valorRetiro = entradaScaner.nextLine();
                     retirarDinero(numeroCuentaC, valorRetiro);
+
                     break;
                 case 5: // 5 -- CONSULTAR SALDO
                     System.out.println("\t CONSULTAR SALDO");
@@ -355,13 +385,38 @@ public class InterfaceTexto {
                     String numeroCuentaConsultar = entradaScaner.nextLine();
                     consultarSaldo(numeroCuentaConsultar);
                     break;
-                case 6:
+                case 6: // 6 -- HACER APUESTA
+                    System.out.println("\t HACER APUESTA");
+                    System.out.println("Ingrese numero de cuenta: ");
+                    String numeroCuentaH = entradaScaner.nextLine();
+                    System.out.println("Ingrese tipo de apuesta: \n A (4 cifras) \t B (3 cifras) \t C (2 cifras)");
+                    String tipoApuesta = entradaScaner.nextLine();
+                    int count = 0;
+                    while (!validarLetraTipoApuesta(tipoApuesta)) {
+                        System.out.println("Tipo no valido, Ingrese tipo de apuesta: \n A (4 cifras) \t B (3 cifras) \t C (2 cifras)");
+                        String tipoApuestaIf = entradaScaner.nextLine();
+                        if (validarLetraTipoApuesta(tipoApuestaIf)) {
+                            tipoApuesta = tipoApuestaIf;
+                            break;
+                        }
+                    }
+
+                    System.out.println("Ingrese numero de apuesta: ");
+                    String numeroApuesta = entradaScaner.nextLine();
+                    hacerApuesta(numeroCuentaH, tipoApuesta.toUpperCase(), numeroApuesta);
                     break;
                 case 7:
                     break;
-                case 8: // 8 -- CARGA AUTOMATICA 
-                    cargaAutomatica();
-                    break;
+                case 8: 
+                    try {
+                    // 8 -- CARGA AUTOMATICA
+                    subirArchivo();
+                } catch (IOException ex) {
+                    Logger.getLogger(InterfaceTexto.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                break;
+
                 default:
                     break;
 
