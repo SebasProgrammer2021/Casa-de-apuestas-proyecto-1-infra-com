@@ -29,6 +29,7 @@ import static javax.swing.UIManager.get;
  */
 public class Servidor {
 
+    static CasaApuesta casaApuestas = new CasaApuesta("Casa de apuestas el MINICOMBO.", "Armenia,Quindío.");
     static HashMap<String, String> CuentasApuestas = new HashMap<String, String>();
     static HashMap<String, Integer> saldoCuentas = new HashMap<String, Integer>();
     static DataInputStream in;
@@ -107,7 +108,7 @@ public class Servidor {
                         Random random = new Random();
                         int randomNumber = (random.nextInt(955369));//int randomNumber = (random.nextInt(955369)); se crea una cuenta con  saldo en 0 y un numeto de cuenta ramdon que inica en 1
                         String cuenta = "1" + Integer.toString(randomNumber);
-
+                        System.err.println("cuenta creada: " +cuenta );
                         //guardo en hashmap
                         if (!CuentasApuestas.containsKey(nombreCliente)) {
                             CuentasApuestas.put(nombreCliente, cuenta);  //LLENAMOS LOS HASHMAP CON LA CLAVE DE CUENTA 
@@ -149,7 +150,8 @@ public class Servidor {
                                         int saldo = 0;
                                         saldo = saldoCuentas.get(s) - VALOR_APUESTA;
                                         saldoCuentas.put(cuo, saldo);
-
+                                        casaApuestas.setSaldo(casaApuestas.getSaldo()+ VALOR_APUESTA);
+                                        System.out.println("saldo casa "+casaApuestas.getSaldo());
                                         Apuesta nuevaApuesta = new Apuesta("TIPO_A", Integer.parseInt(va));
                                         apuesta.put(cuo, nuevaApuesta);
 
@@ -180,7 +182,6 @@ public class Servidor {
                         String va  = in.readUTF();
 
                         if (CuentasApuestas.containsValue(cuo) && saldoCuentas.containsKey(cuo)) {
-                            System.err.println("va" + (va.length() == 3));
                             if (va.length() == 3) {
                                 //descontar de la cuenta de origen
                                 for (String s : saldoCuentas.keySet()) {
@@ -188,6 +189,8 @@ public class Servidor {
                                         int saldo = 0;
                                         saldo = saldoCuentas.get(s) - VALOR_APUESTA;
                                         saldoCuentas.put(cuo, saldo);
+                                        casaApuestas.setSaldo(casaApuestas.getSaldo()+ VALOR_APUESTA);
+                                        System.out.println("saldo casa "+casaApuestas.getSaldo());
 
                                         Apuesta nuevaApuesta = new Apuesta("TIPO_B", Integer.parseInt(va));
                                         apuesta.put(cuo, nuevaApuesta);
@@ -226,6 +229,8 @@ public class Servidor {
                                         int saldo = 0;
                                         saldo = saldoCuentas.get(s) - VALOR_APUESTA;
                                         saldoCuentas.put(cuo, saldo);
+                                        casaApuestas.setSaldo(casaApuestas.getSaldo()+ VALOR_APUESTA);
+                                        System.out.println("saldo casa "+casaApuestas.getSaldo());
 
                                         Apuesta nuevaApuesta = new Apuesta("TIPO_C", Integer.parseInt(va));
                                         apuesta.put(cuo, nuevaApuesta);
@@ -259,7 +264,7 @@ public class Servidor {
                         try {
                         //recibe datos de cliente
                         String cu = in.readUTF();
-                        
+
                         if (CuentasApuestas.containsValue(cu)) {
                             if (saldoCuentas.containsKey(cu)) {
                                 out.writeUTF("Su saldo es de: " + saldoCuentas.get(cu) + " Cuenta: " + cu);
@@ -367,11 +372,11 @@ public class Servidor {
                 if ("CERRAR_APUESTAS".equals(mensaje)) {
                     try {
                         System.out.println("servidor recibe: " + mensaje);
-                        
+
                         System.out.println("entro cerrar apuestas");
-                        if (CuentasApuestas.size() == 0){
+                        if (CuentasApuestas.size() == 0) {
                             out.writeUTF("true");
-                        }else{
+                        } else {
                             out.writeUTF("false");
                         }
                     } catch (IOException ex) {
@@ -396,24 +401,21 @@ public class Servidor {
                         System.out.println(datoSorteo);
 
                         //if (CuentasApuestas.containsValue(datoSortep)) {
+                        if (apuesta.containsKey(datoSorteo)) {
+                            System.out.println("si existe");
 
-                            if (apuesta.containsKey(datoSorteo)) {
-                                System.out.println("si existe");
+                            // apuesta.put(datoSortep, 0);
+                            out.writeUTF("SORTEO CREADO CON EXITO, NUMERO : " + datoSorteo + " SALDO: " + "0");
 
-                               // apuesta.put(datoSortep, 0);
+                        } else {
+                            System.out.println("sorteo realizado*********");
+                            out.writeUTF("El número de apuesta no existe: " + datoSorteo);
 
-                                out.writeUTF("SORTEO CREADO CON EXITO, NUMERO : " + datoSorteo + " SALDO: " + "0");
-
-                            } else {
-                                System.out.println("sorteo realizado*********");
-                                out.writeUTF("El número de apuesta no existe: "+datoSorteo);
-
-                            }
+                        }
 
                         //} else {
                         //    out.writeUTF("Cuenta: " + datoSortep + " no existente");
-                       // }
-
+                        // }
                     } catch (IOException ex) {
                         out.writeUTF("¡transacción erronea");
                         System.out.println(ex);

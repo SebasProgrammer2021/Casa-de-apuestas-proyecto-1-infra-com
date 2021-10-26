@@ -12,18 +12,37 @@ package casa_apuesta_1;
  */
 public class CasaApuesta {
 
-    private int saldo;
+    private int saldo = 0;
+    private String nombre;
+    private String ubicacion;
 
-    public CasaApuesta(int saldo) {
-        this.saldo = saldo;
+    public CasaApuesta(String nombre, String ubicacion) {
+        this.nombre = nombre;
+        this.ubicacion = ubicacion;
     }
 
     public int getSaldo() {
         return saldo;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
     public void setSaldo(int saldo) {
         this.saldo = saldo;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
     }
 
 }
