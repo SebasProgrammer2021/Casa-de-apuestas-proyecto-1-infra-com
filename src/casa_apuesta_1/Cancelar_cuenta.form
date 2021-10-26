@@ -48,8 +48,8 @@
               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="JBT_CANCELAR_CUENTA" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="JTF_CUENTAH_CANCELAR" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
+                  <Component id="btnCancelarCuenta" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="numeroCuenta" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -66,11 +66,11 @@
               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="JTF_CUENTAH_CANCELAR" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="numeroCuenta" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="JBT_CANCELAR_CUENTA" min="-2" pref="37" max="-2" attributes="0"/>
+              <Component id="btnCancelarCuenta" min="-2" pref="37" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -79,7 +79,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cuenta:"/>
+        <Property name="text" type="java.lang.String" value="Numero cuenta: "/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
@@ -98,7 +98,7 @@
         <Property name="text" type="java.lang.String" value="Ingrese el numero de la cuenta que desea cancelar."/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="JBT_CANCELAR_CUENTA">
+    <Component class="javax.swing.JButton" name="btnCancelarCuenta">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="ff" red="99" type="rgb"/>
@@ -106,10 +106,10 @@
         <Property name="text" type="java.lang.String" value="CANCELAR CUENTA"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBT_CANCELAR_CUENTAActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarCuentaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="JTF_CUENTAH_CANCELAR">
+    <Component class="javax.swing.JTextField" name="numeroCuenta">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="ff" red="99" type="rgb"/>
@@ -119,8 +119,8 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTF_CUENTAH_CANCELARActionPerformed"/>
-        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="JTF_CUENTAH_CANCELARKeyTyped"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="numeroCuentaActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="numeroCuentaKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">

@@ -6,7 +6,9 @@ package casa_apuesta_1;
 
 /**
  *
- * @author Sebastian
+ * @author Rodrigo Acosta Restrepo.
+ * @author Juan Sebastián Tobón.
+ * @author Sebastián Londoño Valencia.
  */
 public class CasaApuesta {
 
