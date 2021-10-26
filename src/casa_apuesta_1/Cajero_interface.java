@@ -691,6 +691,7 @@ public class Cajero_interface extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosed
     public void ConsultarS(String cu) {
         String numeroCuenta = cu;
+        System.out.println("cuenta"+numeroCuenta);
 
         try {
             //Creo el socket para conectarme con el cliente
@@ -700,7 +701,7 @@ public class Cajero_interface extends javax.swing.JFrame {
             out = new DataOutputStream(sc.getOutputStream());
 
             //Envio un mensaje al cliente
-            out.writeUTF("CONSULTAR");
+            out.writeUTF("CONSULTAR_SALDO");
             out.writeUTF(numeroCuenta);
 
             //Recibo el mensaje del servidor

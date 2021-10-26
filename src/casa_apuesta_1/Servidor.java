@@ -55,7 +55,7 @@ public class Servidor {
         out.writeUTF(mensaje);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         //FECHA
         DateTimeFormatter dtf5 = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm");
@@ -255,17 +255,17 @@ public class Servidor {
 
                         break;
                     //--------------------------------------------CONSULTAR SALDO CUENTA----------------------------------------------
-                    case "CONSULTAR":
+                    case "CONSULTAR_SALDO":
                         try {
-                        //recibe datos de cliente en cuenta
+                        //recibe datos de cliente
                         String cu = in.readUTF();
-
-                            if (CuentasApuestas.containsValue(cu)) {
-                                if (saldoCuentas.containsKey(cu)) {
-                                    out.writeUTF("Su saldo es de: " + saldoCuentas.get(cu) + " Cuenta: " + cu);
-                                } else {
-                                    out.writeUTF("ERROR DE CUENTA: ");
-                                }
+                        
+                        if (CuentasApuestas.containsValue(cu)) {
+                            if (saldoCuentas.containsKey(cu)) {
+                                out.writeUTF("Su saldo es de: " + saldoCuentas.get(cu) + " Cuenta: " + cu);
+                            } else {
+                                out.writeUTF("ERROR DE CUENTA: ");
+                            }
                         } else {
                             out.writeUTF("Cuenta: " + cu + " no existente");
                         }
@@ -309,45 +309,31 @@ public class Servidor {
 //----------------------------------------------CANCELAR CUENTA-------------------------------------------------------------
                 if ("CANCELAR_CUENTA".equals(mensaje)) {
                     try {
-                        System.out.println("servidor recibe: " + mensaje);
                         //recibe datos de cliente en cuenta
                         String cc = in.readUTF();
 
-                        //muestra datos de cliente
-                        System.out.println(cc + "servidor");
-
-                        //VALIDAR SALDO
-                        boolean sal = false;
-                        for (String f : CuentasApuestas.keySet()) {
-                            for (String saldo : saldoCuentas.keySet()) {
-                                if (CuentasApuestas.get(f).equals(cc)) {
-                                    int sa = saldoCuentas.get(saldo);
-                                    if (sa != 0) {
-                                        out.writeUTF("No se puede eliminar la cuenta: " + CuentasApuestas.get(f) + ", ya que tiene saldo a favor.\n"
-                                                + "Saldo a favor: " + sa);
-                                        sal = true;
+                        if (CuentasApuestas.containsValue(cc) && saldoCuentas.containsKey(cc)) {
+                            int sa = saldoCuentas.get(cc);
+                            if (sa > 0) {
+                                out.writeUTF("No se puede cancelar la cuenta: " + cc + ", ya que tiene saldo a favor.\n"
+                                        + "Saldo a favor: " + sa + "\n\n" + "Para cancelar la cuenta debe retirar todo el saldo.");
+                            } else {
+                                Iterator<HashMap.Entry<String, String>> iter = CuentasApuestas.entrySet().iterator();
+                                while (iter.hasNext()) {
+                                    Map.Entry<String, String> entry = iter.next();
+                                    if (cc.equalsIgnoreCase(entry.getValue())) {
+                                        iter.remove();
+                                        out.writeUTF("La cuenta : " + cc + " ha sido eliminada exitosamente.");
                                     }
                                 }
                             }
+                        } else {
+                            out.writeUTF("La cuenta no existe");
                         }
-
-                        Iterator<HashMap.Entry<String, String>> iter = CuentasApuestas.entrySet().iterator();
-                        while (iter.hasNext()) {
-                            Map.Entry<String, String> entry = iter.next();
-                            if (cc.equalsIgnoreCase(entry.getValue())) {
-                                iter.remove();
-                                System.out.println("entre al while");
-                                out.writeUTF("La cuenta : " + cc + " ha sido eliminada exitosamente.");
-                            }
-                        }
-
                     } catch (IOException ex) {
                         System.out.println(ex);
-
                     }
-
                 }
-
 //---------------------------------------FINALIZACION DEL PROCESO DE CANCELAR CUENTA--------------------------------------               
 //-----------------------------------------CONSULTAR DATOS ACTUALES-------------------------------------------------
 //si el mensaje del cliente es este se ejecuta esta orden de comandos

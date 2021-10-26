@@ -132,9 +132,9 @@ public class Consultar_saldo extends javax.swing.JFrame {
 
     private void bntConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntConsultarActionPerformed
         // TODO add your handling code here:
-        Cajero_interface cjjc = new Cajero_interface();
+        Cajero_interface cajero = new Cajero_interface();
         if (numeroCuenta.getText().length() > 0) {
-            cjjc.ConsultarS(numeroCuenta.getText());
+            cajero.ConsultarS(numeroCuenta.getText());
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Ingrese una cuenta");
