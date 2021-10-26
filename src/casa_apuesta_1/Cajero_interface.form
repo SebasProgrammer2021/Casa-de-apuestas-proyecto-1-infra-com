@@ -70,8 +70,11 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="realizarSorteo_Button" min="-2" pref="161" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="realizarSorteo_Button" min="-2" pref="161" max="-2" attributes="0"/>
+                                  <Component id="reporteApuestas_Button" min="-2" pref="156" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -89,37 +92,39 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="panel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="NULL" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="panel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="NULL" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" pref="84" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" pref="84" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-              <Component id="JTF_FECHA" min="-2" pref="41" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="Abrir_cuenta" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
-                  <Component id="CANCELAR_CUENTA_APUESTAS" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                      <Component id="JTF_FECHA" min="-2" pref="41" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="DEPOSITAR_DINERO" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
-                          <Component id="CONSULTAR_SALDO" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                          <Component id="Abrir_cuenta" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                          <Component id="CANCELAR_CUENTA_APUESTAS" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="realizarSorteo_Button" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
+              </Group>
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="DEPOSITAR_DINERO" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                  <Component id="CONSULTAR_SALDO" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                  <Component id="reporteApuestas_Button" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -132,7 +137,7 @@
                   <Component id="cerrarApuestas" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                   <Component id="CARGA_AUTO" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="67" max="32767" attributes="0"/>
+              <EmptySpace pref="41" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -407,6 +412,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="realizarSorteo_ButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="reporteApuestas_Button">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Reporte"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reporteApuestas_ButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -1,6 +1,5 @@
 package casa_apuesta_1;
 
-import javax.swing.JOptionPane;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -9,17 +8,13 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.lang.*;
-import java.sql.JDBCType;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Collections;
 import java.util.Random;
 // Import the HashMap class
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import javax.swing.JOptionPane;
-import static javax.swing.UIManager.get;
 
 /**
  *
@@ -400,15 +395,13 @@ public class Servidor {
                         //muestra datos de cliente
                         System.out.println(datoSorteo);
 
-                        //if (CuentasApuestas.containsValue(datoSortep)) {
                         if (apuesta.containsKey(datoSorteo)) {
                             System.out.println("si existe");
-
-                            // apuesta.put(datoSortep, 0);
+                            
                             out.writeUTF("SORTEO CREADO CON EXITO, NUMERO : " + datoSorteo + " SALDO: " + "0");
 
                         } else {
-                            System.out.println("sorteo realizado*********");
+                            System.out.println("sorteo no realizado*********");
                             out.writeUTF("El número de apuesta no existe: " + datoSorteo);
 
                         }
@@ -551,6 +544,20 @@ public class Servidor {
 
                     }
 
+                }
+                
+                if ("REPORTE".equals(mensaje)) {
+
+                    System.out.println(mensaje);
+                    out.writeUTF(" ");
+                    System.out.println("CUENTAS********");
+                    for (String i : CuentasApuestas.keySet()) {
+                        // System.out.println("Nombre: " + i + " Cuenta: " + CuentasApuestas.get(i) + " Saldo: " + saldoCuentas.get(s) + " " + fechatrans.get(f));
+                        for (String j : apuesta.keySet()) {
+                            System.out.println("cuenta: " + i + " " + apuesta.get(j));
+                            out.writeUTF("Cuenta: " + i + " " + apuesta.get(j));
+                        }
+                    }
                 }
 //-------------------------------------------------FINALIZACION---------------------------------------------------
                 //Cierro el socket

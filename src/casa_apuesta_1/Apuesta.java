@@ -15,6 +15,11 @@ public class Apuesta {
     private String tipoApuesta;
     private int numeroApuesta;
 
+    public Apuesta() {
+        super();
+    }
+    
+
     public Apuesta(String tipoApuesta, int numeroApuesta) {
         this.tipoApuesta = tipoApuesta;
         this.numeroApuesta = numeroApuesta;
@@ -35,8 +40,11 @@ public class Apuesta {
     public void setNumeroApuesta(int numeroApuesta) {
         this.numeroApuesta = numeroApuesta;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Apuesta{" + "tipoApuesta=" + tipoApuesta + ", numeroApuesta=" + numeroApuesta + '}';
+    }
     
     
 }

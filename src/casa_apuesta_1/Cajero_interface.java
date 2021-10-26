@@ -96,6 +96,7 @@ public class Cajero_interface extends javax.swing.JFrame {
         CARGA_AUTO = new javax.swing.JButton();
         panel = new javax.swing.JPanel();
         realizarSorteo_Button = new javax.swing.JButton();
+        reporteApuestas_Button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 0, 0));
@@ -252,6 +253,13 @@ public class Cajero_interface extends javax.swing.JFrame {
             }
         });
 
+        reporteApuestas_Button.setText("Reporte");
+        reporteApuestas_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reporteApuestas_ButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -285,8 +293,10 @@ public class Cajero_interface extends javax.swing.JFrame {
                                 .addGap(68, 68, 68))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(realizarSorteo_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(109, 109, 109)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(realizarSorteo_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(reporteApuestas_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(114, 114, 114)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -298,28 +308,30 @@ public class Cajero_interface extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(NULL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(NULL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(33, 33, 33)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(33, 33, 33)
-                .addComponent(JTF_FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Abrir_cuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CANCELAR_CUENTA_APUESTAS, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
+                        .addComponent(JTF_FECHA, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(DEPOSITAR_DINERO, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CONSULTAR_SALDO, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
+                            .addComponent(Abrir_cuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CANCELAR_CUENTA_APUESTAS, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(realizarSorteo_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DEPOSITAR_DINERO, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CONSULTAR_SALDO, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(reporteApuestas_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(REALIZAR_APUESTA, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -329,7 +341,7 @@ public class Cajero_interface extends javax.swing.JFrame {
                     .addComponent(RETIRAR_DINERO, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cerrarApuestas, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CARGA_AUTO, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
@@ -738,9 +750,21 @@ public class Cajero_interface extends javax.swing.JFrame {
     }//GEN-LAST:event_Abrir_cuentaActionPerformed
 
     private void realizarSorteo_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizarSorteo_ButtonActionPerformed
-        Realizar_sorteo realizarSorteo = new Realizar_sorteo();
-        realizarSorteo.setVisible(true);
+        
+       // if(!banderaVal){
+            Realizar_sorteo realizarSorteo = new Realizar_sorteo();
+            realizarSorteo.setVisible(true);
+       // }else{
+       //    System.out.println("Las Apuestas Estan Abiertas, Por favor cerrar Apuestas para Realizar Sorteo");
+       //   JOptionPane.showMessageDialog(this, "Las Apuestas Estan Abiertas, Por favor cerrar Apuestas para Realizar Sorteo");
+       // }
+        
     }//GEN-LAST:event_realizarSorteo_ButtonActionPerformed
+
+    private void reporteApuestas_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reporteApuestas_ButtonActionPerformed
+        // TODO add your handling code here:
+        reporteApuestas("REPORTE");
+    }//GEN-LAST:event_reporteApuestas_ButtonActionPerformed
     public void ConsultarS(String cu) {
         String numeroCuenta = cu;
         System.out.println("cuenta" + numeroCuenta);
@@ -890,6 +914,31 @@ public class Cajero_interface extends javax.swing.JFrame {
         });
 
     }
+     public void reporteApuestas(String dato) {
+        // TODO add your handling code here:
+        String c = dato;
+
+        try {
+            //Creo el socket para conectarme con el cliente
+            Socket sc = new Socket(HOST, PUERTO);
+
+            in = new DataInputStream(sc.getInputStream());
+            out = new DataOutputStream(sc.getOutputStream());
+
+            //Envio un mensaje al cliente
+            out.writeUTF(c);
+
+            //Recibo el mensaje del servidor
+            String mensaje = in.readUTF();
+
+            System.out.println(mensaje);
+
+            sc.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(Cajero_interface.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Abrir_cuenta;
@@ -906,6 +955,7 @@ public class Cajero_interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel panel;
     private javax.swing.JButton realizarSorteo_Button;
+    private javax.swing.JButton reporteApuestas_Button;
     // End of variables declaration//GEN-END:variables
 
 //repintar imagenes en los paneles
