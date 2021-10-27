@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,6 +39,11 @@ public class InterfaceTexto {
     String apellido;
     String saldo;
     static String ar[] = new String[3];
+    //Variables para almacenar numero de cuentas
+    static ArrayList<String> numerosCuentas = new ArrayList<String>();
+    static Integer contador1 = 0;
+    static Integer contador2 = 0;
+    
 
     /**
      * Metodos para autocarga de datos en el programa
@@ -96,6 +102,9 @@ public class InterfaceTexto {
             //Recibo el mensaje del servidor
             String mensaje = in.readUTF();
             System.out.println(mensaje);
+            
+            //Guardamos datos de la cuenta
+            numerosCuentas.add(in.readUTF());
 
             socket.close();
             return datos;
@@ -302,11 +311,13 @@ public class InterfaceTexto {
                 break;
 
             case "DEPOSITAR":
-                respuesta = depositarDinero(datos[1], datos[2]);
+                respuesta = depositarDinero(numerosCuentas.get(contador1), datos[1]);
+                contador1++;
                 break;
 
             case "APOSTAR":
-                respuesta = hacerApuesta(datos[1], datos[2], datos[1]);
+                respuesta = hacerApuesta(numerosCuentas.get(0), datos[1], datos[2]);
+               contador2++;
                 break;
 
         }

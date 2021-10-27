@@ -118,6 +118,9 @@ public class Servidor {
                             //Le envio un mensaje y # de cuenta 
                             out.writeUTF("Cuenta creada con #" + cuenta + " A nombre de: " + nombreCliente);   //DEVOLVEMOS MENSAJE AL CLIENTE
                             System.out.println("Cuenta creada con exito");
+                            
+                            //Enviamos numero de la cuenta
+                            out.writeUTF(cuenta);
                         } else {
                             System.out.println("este nombre ya esta, error al crear cuenta");
                             out.writeUTF("El usuario " + nombreCliente + " ya esta registrado");
