@@ -394,21 +394,19 @@ public class Servidor {
 
                         //muestra datos de cliente
                         System.out.println(datoSorteo);
-
-                        if (apuesta.containsKey(datoSorteo)) {
+                        
+                        
+                        for (Map.Entry<String, Apuesta> j : apuesta.entrySet()) {
+                            System.out.println("Apuestas: "+j.getValue().getNumeroApuesta());
+                            if(j.getValue().getNumeroApuesta() == Integer.parseInt(datoSorteo)){
                             System.out.println("si existe");
-                            
-                            out.writeUTF("SORTEO CREADO CON EXITO, NUMERO : " + datoSorteo + " SALDO: " + "0");
-
+                            out.writeUTF("SORTEO CREADO CON EXITO, NUMERO : " + datoSorteo );
                         } else {
                             System.out.println("sorteo no realizado*********");
                             out.writeUTF("El número de apuesta no existe: " + datoSorteo);
 
                         }
-
-                        //} else {
-                        //    out.writeUTF("Cuenta: " + datoSortep + " no existente");
-                        // }
+                        }
                     } catch (IOException ex) {
                         out.writeUTF("¡transacción erronea");
                         System.out.println(ex);
@@ -517,10 +515,8 @@ public class Servidor {
                                     if (CuentasApuestas.get(i).equals(s)) {
                                         System.out.println("Nombre: " + i + " Cuenta: " + CuentasApuestas.get(i) + " Saldo: " + saldoCuentas.get(s) + " " + fechatrans.get(f));
                                     }
-
                                 }
                             }
-
                         }
                     }
                     System.out.println("APUESTAS*********");
@@ -551,11 +547,21 @@ public class Servidor {
                     System.out.println(mensaje);
                     out.writeUTF(" ");
                     System.out.println("CUENTAS********");
+                    int tipoA  = 0;
+                    int tipoB  = 0;
+                    int tipoC  = 0;
                     for (String i : CuentasApuestas.keySet()) {
-                        // System.out.println("Nombre: " + i + " Cuenta: " + CuentasApuestas.get(i) + " Saldo: " + saldoCuentas.get(s) + " " + fechatrans.get(f));
-                        for (String j : apuesta.keySet()) {
-                            System.out.println("cuenta: " + i + " " + apuesta.get(j));
-                            out.writeUTF("Cuenta: " + i + " " + apuesta.get(j));
+                        for (Map.Entry<String, Apuesta> j : apuesta.entrySet()) {
+                            if(j.getValue().getTipoApuesta().equalsIgnoreCase("TIPO_A")){
+                                tipoA ++;
+                            }else if (j.getValue().getTipoApuesta().equalsIgnoreCase("TIPO_B")) {
+                                tipoB ++;
+                            } else {
+                                tipoC ++;
+                            }
+                            System.out.println("Cuenta: " + i + " " + j.getValue()+"\n\nApuestas Tipo A: "+ tipoA + " Tipo B: "+ tipoB + " Tipo C: "+ tipoC);
+                            out.writeUTF("Cuenta: " + i + " " + j.getValue()+"\n\nApuestas Tipo A: "+ tipoA + " Tipo B: "+ tipoB + " Tipo C: "+ tipoC);
+                            out.writeUTF("Apuestas Tipo A: "+ tipoA + " Tipo B: "+ tipoB + " Tipo C: "+ tipoC);
                         }
                     }
                 }
