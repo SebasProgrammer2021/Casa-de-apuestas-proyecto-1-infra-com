@@ -47,21 +47,36 @@
                       <Component id="NULL" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="RETIRAR_DINERO" max="32767" attributes="0"/>
-                          <Component id="Abrir_cuenta" alignment="1" min="-2" pref="242" max="-2" attributes="0"/>
-                          <Component id="DEPOSITAR_DINERO" alignment="0" pref="244" max="32767" attributes="0"/>
-                          <Component id="REALIZAR_APUESTA" alignment="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="RETIRAR_DINERO" min="-2" pref="244" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="Abrir_cuenta" min="-2" pref="242" max="-2" attributes="0"/>
+                                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="DEPOSITAR_DINERO" min="-2" pref="244" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="CONSULTAR_SALDO" pref="211" max="32767" attributes="0"/>
+                                          <Component id="CANCELAR_CUENTA_APUESTAS" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="REALIZAR_APUESTA" min="-2" pref="244" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="340" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="realizarSorteo_Button" min="-2" pref="232" max="-2" attributes="0"/>
+                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cerrarApuestas" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
+                                  <Component id="reporteApuestas_Button" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace min="69" pref="69" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="cerrarApuestas" alignment="0" pref="242" max="32767" attributes="0"/>
-                          <Component id="CONSULTAR_SALDO" alignment="0" max="32767" attributes="0"/>
-                          <Component id="CANCELAR_CUENTA_APUESTAS" alignment="0" max="32767" attributes="0"/>
-                          <Component id="realizarSorteo_Button" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                      <Component id="reporteApuestas_Button" min="-2" pref="232" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -70,7 +85,7 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Component id="JTF_FECHA" min="-2" pref="275" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -90,30 +105,33 @@
                       <Component id="jLabel1" min="-2" pref="84" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-              <Component id="JTF_FECHA" min="-2" pref="41" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Abrir_cuenta" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
-                  <Component id="CANCELAR_CUENTA_APUESTAS" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="DEPOSITAR_DINERO" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                   <Component id="CONSULTAR_SALDO" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="REALIZAR_APUESTA" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
                   <Component id="cerrarApuestas" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="RETIRAR_DINERO" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
-                  <Component id="realizarSorteo_Button" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                  <Component id="DEPOSITAR_DINERO" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                  <Component id="CANCELAR_CUENTA_APUESTAS" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                   <Component id="reporteApuestas_Button" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="REALIZAR_APUESTA" alignment="3" min="-2" pref="41" max="-2" attributes="0"/>
+                  <Component id="realizarSorteo_Button" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+              <Component id="RETIRAR_DINERO" min="-2" pref="41" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+              <Component id="JTF_FECHA" min="-2" pref="41" max="-2" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -364,6 +382,28 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reporteApuestas_ButtonActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Servicios Usuarios"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Servios de la Casa de Apuestas"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
