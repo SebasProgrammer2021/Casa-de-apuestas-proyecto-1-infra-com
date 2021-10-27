@@ -316,7 +316,7 @@ public class InterfaceTexto {
                 break;
 
             case "APOSTAR":
-                respuesta = hacerApuesta(numerosCuentas.get(0), datos[1], datos[2]);
+                respuesta = hacerApuesta(numerosCuentas.get(contador2), datos[1], datos[2]);
                contador2++;
                 break;
 

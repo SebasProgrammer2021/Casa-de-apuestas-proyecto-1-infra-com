@@ -1,6 +1,5 @@
 package casa_apuesta_1;
 
-import javax.swing.JOptionPane;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -9,17 +8,13 @@ import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.lang.*;
-import java.sql.JDBCType;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Collections;
 import java.util.Random;
 // Import the HashMap class
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import javax.swing.JOptionPane;
-import static javax.swing.UIManager.get;
 
 /**
  *
@@ -402,23 +397,19 @@ public class Servidor {
 
                         //muestra datos de cliente
                         System.out.println(datoSorteo);
-
-                        //if (CuentasApuestas.containsValue(datoSortep)) {
-                        if (apuesta.containsKey(datoSorteo)) {
+                        
+                        
+                        for (Map.Entry<String, Apuesta> j : apuesta.entrySet()) {
+                            System.out.println("Apuestas: "+j.getValue().getNumeroApuesta());
+                            if(j.getValue().getNumeroApuesta() == Integer.parseInt(datoSorteo)){
                             System.out.println("si existe");
-
-                            // apuesta.put(datoSortep, 0);
-                            out.writeUTF("SORTEO CREADO CON EXITO, NUMERO : " + datoSorteo + " SALDO: " + "0");
-
+                            out.writeUTF("SORTEO CREADO CON EXITO, NUMERO : " + datoSorteo );
                         } else {
-                            System.out.println("sorteo realizado*********");
+                            System.out.println("sorteo no realizado*********");
                             out.writeUTF("El número de apuesta no existe: " + datoSorteo);
 
                         }
-
-                        //} else {
-                        //    out.writeUTF("Cuenta: " + datoSortep + " no existente");
-                        // }
+                        }
                     } catch (IOException ex) {
                         out.writeUTF("¡transacción erronea");
                         System.out.println(ex);
@@ -527,10 +518,8 @@ public class Servidor {
                                     if (CuentasApuestas.get(i).equals(s)) {
                                         System.out.println("Nombre: " + i + " Cuenta: " + CuentasApuestas.get(i) + " Saldo: " + saldoCuentas.get(s) + " " + fechatrans.get(f));
                                     }
-
                                 }
                             }
-
                         }
                     }
                     System.out.println("APUESTAS*********");
@@ -554,6 +543,30 @@ public class Servidor {
 
                     }
 
+                }
+                
+                if ("REPORTE".equals(mensaje)) {
+
+                    System.out.println(mensaje);
+                    out.writeUTF(" ");
+                    System.out.println("CUENTAS********");
+                    int tipoA  = 0;
+                    int tipoB  = 0;
+                    int tipoC  = 0;
+                    for (String i : CuentasApuestas.keySet()) {
+                        for (Map.Entry<String, Apuesta> j : apuesta.entrySet()) {
+                            if(j.getValue().getTipoApuesta().equalsIgnoreCase("TIPO_A")){
+                                tipoA ++;
+                            }else if (j.getValue().getTipoApuesta().equalsIgnoreCase("TIPO_B")) {
+                                tipoB ++;
+                            } else {
+                                tipoC ++;
+                            }
+                            System.out.println("Cuenta: " + i + " " + j.getValue()+"\n\nApuestas Tipo A: "+ tipoA + " Tipo B: "+ tipoB + " Tipo C: "+ tipoC);
+                            out.writeUTF("Cuenta: " + i + " " + j.getValue()+"\n\nApuestas Tipo A: "+ tipoA + " Tipo B: "+ tipoB + " Tipo C: "+ tipoC);
+                            out.writeUTF("Apuestas Tipo A: "+ tipoA + " Tipo B: "+ tipoB + " Tipo C: "+ tipoC);
+                        }
+                    }
                 }
 //-------------------------------------------------FINALIZACION---------------------------------------------------
                 //Cierro el socket
